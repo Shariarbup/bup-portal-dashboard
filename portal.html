@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ORBIT — Enhanced v3 (Unified Section Designs)</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#070b17;
+      --text:#e7eaf1;
+      --muted:#a3b2cc;
+      --line:rgba(255,255,255,.14);
+      --gl:rgba(255,255,255,.06);
+      --sky:#38bdf8;
+      --violet:#8b5cf6;
+      --pink:#ec4899;
+      --amber:#f59e0b;
+      --green:#22c55e;
+      --indigo:#6366f1;
+      --teal:#14b8a6;
+      --rose:#fb7185;
+      --cyan:#06b6d4;
+    }
+
+    :root{
+      --orbit-indigo:#4f46e5;
+      --orbit-indigo-2:#6366f1;
+      --orbit-dark:#0f172a;
+      --orbit-muted:#6b7280;
+      --orbit-bg:#0b1020;             /* darker canvas for contrast */
+      --orbit-card:#0f172a;
+      --orbit-glass: rgba(255,255,255,.06);
+      --orbit-border: rgba(255,255,255,.12);
+      --orbit-accent:#22c55e;
+      --orbit-sky:#38bdf8;
+      --orbit-pink:#ec4899;
+      --orbit-amber:#f59e0b;
+      --orbit-violet:#8b5cf6;
+    }
+
+    /* Base */
+    html,body{scroll-behavior:smooth;background:var(--orbit-bg);color:#e5e7eb;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";}
+    .container{max-width:1150px}
+    a, .btn-link {text-decoration:none}
+
+    /* Fancy gradient header background */
+    .site-top {
+      position: relative;
+      background:
+        radial-gradient(800px 300px at 80% -10%, rgba(79,70,229,.45), transparent 60%),
+        radial-gradient(700px 300px at 10% -20%, rgba(236,72,153,.35), transparent 60%),
+        linear-gradient(180deg, rgba(99,102,241,.18), transparent 35%);
+    }
+
+    /* Subtle grid overlay */
+    .grid-overlay::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image: linear-gradient(transparent 95%, rgba(255,255,255,.06) 95%), linear-gradient(90deg, transparent 95%, rgba(255,255,255,.06) 95%);
+      background-size: 22px 22px;
+      mask-image: radial-gradient(closest-side, rgba(0,0,0,.9), transparent 100%);
+      pointer-events:none;
+    }
+
+    /* Hero */
+    .hero{
+      position:relative;
+      padding:96px 0 48px;
+    }
+    .text-gradient{
+      background:linear-gradient(90deg,var(--orbit-sky),var(--orbit-violet),var(--orbit-pink));
+      -webkit-background-clip:text; background-clip:text; color:transparent
+    }
+    .btn-primary-neo{
+      background:linear-gradient(90deg,var(--orbit-indigo),var(--orbit-indigo-2));
+      border:0;color:#fff;
+      box-shadow:0 12px 30px rgba(99,102,241,.25);
+    }
+    .btn-primary-neo:hover{filter:brightness(1.05)}
+    .btn-ghost{border:1px solid var(--orbit-border); background:transparent; color:#fff}
+    .btn-ghost:hover{background:rgba(255,255,255,.06)}
+
+    /* Tile Cards (hero right) */
+    .tile{
+      border:1px solid var(--orbit-border);
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border-radius:18px;
+      padding:16px;
+      height:100%;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      backdrop-filter: blur(6px);
+    }
+    .tile:hover{ transform: translateY(-6px); border-color:rgba(99,102,241,.45); box-shadow:0 18px 40px rgba(2,6,23,.45); }
+    .badge-chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;border-radius:999px;font-size:.825rem;
+      border:1px solid var(--orbit-border); background:var(--orbit-glass)
+    }
+
+    /* Icon images */
+    .ico{
+      width:40px;height:40px; object-fit:contain; filter:drop-shadow(0 2px 6px rgba(0,0,0,.25));
+    }
+
+    html,body{scroll-behavior:smooth;background:var(--ink);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    .container{max-width:1150px}
+
+    /* Shared section wrapper */
+    .section{position:relative; padding:80px 0; overflow:hidden}
+    .section .section-title{font-family:Manrope,Inter,sans-serif;font-weight:800;letter-spacing:-.02em}
+    .divider{height:3px;width:70px;border-radius:999px;background:linear-gradient(90deg,var(--sky),var(--violet))}
+
+    /* Animated gradient blobs for each section */
+    @keyframes floaty { 0%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-10px) rotate(6deg)} 100%{transform:translateY(0) rotate(0)} }
+    @keyframes hue { 0%{filter:hue-rotate(0deg)} 100%{filter:hue-rotate(360deg)} }
+
+    .blob{position:absolute; border-radius:50%; filter: blur(30px); opacity:.35; animation: floaty 7s ease-in-out infinite}
+    .bg-lines::before{content:"";position:absolute;inset:0;
+      background-image:linear-gradient(transparent 95%, rgba(255,255,255,.05) 95%),linear-gradient(90deg, transparent 95%, rgba(255,255,255,.05) 95%);
+      background-size:22px 22px;pointer-events:none;opacity:.6}
+
+    /* Section-specific color backdrops */
+    .sec-modules{background:linear-gradient(180deg, rgba(20,184,166,.12), rgba(20,184,166,.02));}
+    .sec-cta{background:linear-gradient(90deg, rgba(99,102,241,.15), rgba(56,189,248,.15));}
+    .sec-testimonials{background:linear-gradient(180deg, rgba(236,72,153,.10), rgba(236,72,153,.02));}
+    .sec-stats{background:radial-gradient(900px 300px at 10% -10%, rgba(56,189,248,.22), transparent 60%), radial-gradient(700px 260px at 90% 0%, rgba(139,92,246,.18), transparent 60%);}
+    .sec-pricing{background:linear-gradient(180deg, rgba(245,158,11,.10), rgba(245,158,11,.02));}
+    .sec-faq{background:radial-gradient(600px 200px at 80% -10%, rgba(99,102,241,.22), transparent 60%), linear-gradient(180deg, rgba(99,102,241,.10), transparent 50%);}
+    .sec-contact{background:linear-gradient(180deg, rgba(34,197,94,.10), rgba(34,197,94,.02));}
+
+    /* Blob accents for other sections */
+    .sec-modules .blob{background:conic-gradient(from 45deg, rgba(20,184,166,.45), transparent 40%, rgba(6,182,212,.45))}
+    .sec-cta .blob{background:conic-gradient(from 120deg, rgba(99,102,241,.45), transparent 40%, rgba(56,189,248,.45))}
+    .sec-testimonials .blob{background:conic-gradient(from -60deg, rgba(236,72,153,.45), transparent 40%, rgba(251,113,133,.45))}
+    .sec-stats .blob{background:conic-gradient(from 0deg, rgba(56,189,248,.45), transparent 40%, rgba(139,92,246,.45))}
+    .sec-pricing .blob{background:conic-gradient(from 60deg, rgba(245,158,11,.45), transparent 40%, rgba(236,72,153,.45))}
+    .sec-faq .blob{background:conic-gradient(from 20deg, rgba(99,102,241,.45), transparent 40%, rgba(56,189,248,.45))}
+    .sec-contact .blob{background:conic-gradient(from 180deg, rgba(34,197,94,.45), transparent 40%, rgba(20,184,166,.45))}
+
+    /* Image-less, module-style cards for ALL sections */
+    .card-neo, .tile, .tcard, .kpi, .price-card, .form-wrap{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border-radius:18px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      backdrop-filter: blur(8px);
+    }
+    .card-neo:hover, .tile:hover, .tcard:hover, .kpi:hover, .price-card:hover, .form-wrap:hover{
+      transform:translateY(-6px) scale(1.01);
+      box-shadow:0 18px 50px rgba(2,6,23,.45);
+      border-color:rgba(99,102,241,.45);
+    }
+
+    /* Gradient energy on each card using ::before */
+    .card-neo::before, .tile::before, .tcard::before, .kpi::before, .price-card::before, .form-wrap::before{
+      content:""; position:absolute; inset:-20% -10% auto auto; height:140%; width:70%;
+      background:conic-gradient(from 90deg, rgba(99,102,241,.25), transparent 40%, rgba(56,189,248,.25));
+      filter:blur(26px); opacity:.35; pointer-events:none; border-radius:50%;
+      animation: hue 12s linear infinite;
+    }
+    /* Color variations by utility classes */
+    .u-teal::before{background:conic-gradient(from 45deg, rgba(20,184,166,.35), transparent 40%, rgba(6,182,212,.35))}
+    .u-pink::before{background:conic-gradient(from -30deg, rgba(236,72,153,.35), transparent 40%, rgba(251,113,133,.35))}
+    .u-amber::before{background:conic-gradient(from 60deg, rgba(245,158,11,.35), transparent 40%, rgba(236,72,153,.35))}
+    .u-green::before{background:conic-gradient(from 120deg, rgba(34,197,94,.35), transparent 40%, rgba(20,184,166,.35))}
+    .u-violet::before{background:conic-gradient(from 20deg, rgba(139,92,246,.35), transparent 40%, rgba(99,102,241,.35))}
+
+    /* Badges and buttons */
+    .badge-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--gl);font-size:.86rem}
+    .btn-ghost{border:1px solid var(--line);background:transparent;color:#fff}
+    .btn-ghost:hover{background:rgba(255,255,255,.08)}
+    .btn-primary-neo{background:linear-gradient(90deg,var(--indigo),#4f46e5);border:0;color:#fff;box-shadow:0 12px 30px rgba(99,102,241,.25)}
+    .btn-primary-neo:hover{filter:brightness(1.05)}
+
+    /* Testimonials layout card */
+    .tcard{padding:18px; position:relative}
+    .kpi{text-align:center; padding:22px}
+    .price-card{padding:24px}
+    .form-wrap{padding:28px}
+
+    /* Reveal on scroll */
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.revealed{opacity:1;transform:none}
+
+     /* Minimal arrow buttons */
+    .round-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--orbit-border);background:transparent;color:#fff}
+    .round-btn:hover{background:rgba(255,255,255,.08)}
+
+    .sec-modules    { background-color: #0d9488; } /* teal */
+.sec-cta        { background-color: #4338ca; } /* indigo */
+.sec-testimonials { background-color: #be185d; } /* pink */
+.sec-stats      { background-color: #2563eb; } /* blue */
+.sec-pricing    { background-color: #b45309; } /* amber */
+.sec-faq        { background-color: #4c1d95; } /* violet */
+.sec-contact    { background-color: #166534; } /* green */
+  </style>
+</head>
+<body>
+
+  <!-- Top mini header -->
+  <div class="site-top grid-overlay">
+    <div class="container py-2 d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <a class="badge-chip" href="#store">Store</a>
+        <a class="badge-chip" href="#modules">Modules</a>
+        <a class="badge-chip" href="#faq">FAQ</a>
+        <a class="badge-chip" href="#contact">Contact</a>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <a class="btn btn-ghost btn-sm" href="#">Login</a>
+        <a class="btn btn-primary-neo btn-sm" href="#">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="navbar navbar-expand-lg sticky-top" style="backdrop-filter: blur(10px); background: rgba(11,16,32,.75); border-bottom:1px solid var(--orbit-border)">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white" href="#">
+        <!-- SVG logo -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="url(#g1)" xmlns="http://www.w3.org/2000/svg" class="me-2">
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
+          <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 17.93V20a1 1 0 0 1-2 0v-.07A8 8 0 0 1 4.07 13H4a1 1 0 0 1 0-2h.07A8 8 0 0 1 11 4.07V4a1 1 0 0 1 2 0v.07A8 8 0 0 1 19.93 11H20a1 1 0 0 1 0 2h-.07A8 8 0 0 1 13 19.93Z"/>
+        </svg>
+        ORBIT
+      </a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-white-50" href="#modules">Modules</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#testimonials">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#stats">Stats</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5 reveal">
+          <span class="badge-chip">One‑stop Resources</span>
+          <h1 class="mt-3 mb-3 display-6 fw-bold text-gradient">Business Information & Tools</h1>
+          <p class="lead text-white-50">Events, meetings, memberships, finance, HR, admin — together in one place.</p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="#pricing" class="btn btn-primary-neo btn-lg">Get Started</a>
+            <a href="#modules" class="btn btn-ghost btn-lg">Browse Modules</a>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <!-- 6 tiles -->
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4c5.svg" alt="calendar"/>
+              <div class="fw-semibold">Event Management</div>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4ac.svg" alt="meeting"/>
+              <div class="fw-semibold">Meeting Management</div>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f465.svg" alt="membership"/>
+              <div class="fw-semibold">Membership</div>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4b0.svg" alt="finance"/>
+              <div class="fw-semibold">Finance</div>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f9d1-200d-1f4bc.svg" alt="hr"/>
+              <div class="fw-semibold">Human Resource</div>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/2699.svg" alt="admin"/>
+              <div class="fw-semibold">Administration</div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MODULES -->
+  <section id="modules" class="section sec-modules">
+    <div class="blob" style="width:280px;height:280px;top:-60px;left:8%"></div>
+    <div class="blob" style="width:200px;height:200px;bottom:-40px;right:12%;animation-delay:.4s"></div>
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <div class="divider mx-auto mb-3"></div>
+        <h2 class="mt-3 fw-bold section-title">ORBIT Modules</h2>
+        <p class="text-white-50">Image-less cards with animated gradient energy.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-teal reveal p-3">
+            <h6 class="mb-1">Event Management</h6>
+            <p class="text-white-75 mb-2">Ticketing, attendance, emails, and reports.</p>
+            <div class="d-flex flex-wrap gap-2 small"><span class="badge-chip">tickets</span><span class="badge-chip">check-in</span><span class="badge-chip">emails</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-violet reveal p-3">
+            <h6 class="mb-1">Meeting Management</h6>
+            <p class="text-white-75 mb-2">Agendas, invites, minutes, follow-ups.</p>
+            <div class="d-flex flex-wrap gap-2 small"><span class="badge-chip">agenda</span><span class="badge-chip">notes</span><span class="badge-chip">reminders</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-pink reveal p-3">
+            <h6 class="mb-1">Membership</h6>
+            <p class="text-white-75 mb-2">Plans, renewals, payments, member portal.</p>
+            <div class="d-flex flex-wrap gap-2 small"><span class="badge-chip">portal</span><span class="badge-chip">renewals</span><span class="badge-chip">payments</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-amber reveal p-3">
+            <h6 class="mb-1">Finance</h6>
+            <p class="text-white-75 mb-2">Invoices, receipts, analytics, clean reports.</p>
+            <div class="d-flex flex-wrap gap-2 small"><span class="badge-chip">invoices</span><span class="badge-chip">ledger</span><span class="badge-chip">reports</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-green reveal p-3">
+            <h6 class="mb-1">Human Resource</h6>
+            <p class="text-white-75 mb-2">Recruitment, attendance, leave, reviews.</p>
+            <div class="d-flex flex-wrap gap-2 small"><span class="badge-chip">attendance</span><span class="badge-chip">leave</span><span class="badge-chip">reviews</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-violet reveal p-3">
+            <h6 class="mb-1">Administration</h6>
+            <p class="text-white-75 mb-2">Roles, permissions, audit logs, settings.</p>
+            <div class="d-flex flex-wrap gap-2 small"><span class="badge-chip">roles</span><span class="badge-chip">audit</span><span class="badge-chip">settings</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section sec-cta">
+    <div class="blob" style="width:260px;height:260px;top:-60px;right:14%"></div>
+    <div class="container">
+      <div class="card-neo u-violet reveal p-4 p-md-5">
+        <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+          <div>
+            <h3 class="mb-1 section-title">Experience the Difference</h3>
+            <p class="mb-0 text-white-75">Start with a free event. Ship in minutes.</p>
+          </div>
+          <a href="#" class="btn btn-primary-neo fw-semibold">Start Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section sec-testimonials">
+    <div class="blob" style="width:280px;height:280px;bottom:-60px;left:8%"></div>
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-4 reveal">
+          <span class="badge-chip">What people say</span>
+          <h3 class="mt-3 fw-bold section-title">Trusted by teams big and small</h3>
+          <p class="text-white-50">Real comments from real people.</p>
+          <div class="d-flex gap-2">
+            <button class="round-btn" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev" aria-label="Previous">‹</button>
+            <button class="round-btn" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next" aria-label="Next">›</button>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row g-3">
+                  <div class="col-md-6"><div class="tcard card-neo u-pink reveal">
+                    <p class="mb-2">“Billing and reporting that our finance team actually likes.”</p>
+                    <small class="text-white-50">Samir Khan • Finance Lead</small>
+                  </div></div>
+                  <div class="col-md-6"><div class="tcard card-neo u-teal reveal">
+                    <p class="mb-2">“Member renewals improved without extra effort from staff.”</p>
+                    <small class="text-white-50">Nadia Rahman • Community</small>
+                  </div></div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row g-3">
+                  <div class="col-md-6"><div class="tcard card-neo u-amber reveal">
+                    <p class="mb-2">“ORBIT is a must-have app for organizing events with ease.”</p>
+                    <small class="text-white-50">Eugenia Moore • Founder</small>
+                  </div></div>
+                  <div class="col-md-6"><div class="tcard card-neo u-violet reveal">
+                    <p class="mb-2">“Simplifies planning with intuitive tools and smooth coordination.”</p>
+                    <small class="text-white-50">Eugenia Moore • Ops Lead</small>
+                  </div></div>
+                </div>
+              </div>
+            </div>
+          </div><!-- /carousel -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats" class="section sec-stats">
+    <div class="blob" style="width:240px;height:240px;top:-60px;right:10%"></div>
+    <div class="container text-center">
+      <h3 class="mb-4 fw-bold section-title reveal">Our Achievements</h3>
+      <div class="row g-3">
+        <div class="col-6 col-md-3"><div class="kpi card-neo u-teal reveal"><div class="fs-2 fw-bold counter" data-target="10" data-suffix="+">0</div><div class="text-white-50">Years</div></div></div>
+        <div class="col-6 col-md-3"><div class="kpi card-neo u-violet reveal"><div class="fs-2 fw-bold counter" data-target="2000" data-suffix="+">0</div><div class="text-white-50">Clients</div></div></div>
+        <div class="col-6 col-md-3"><div class="kpi card-neo u-amber reveal"><div class="fs-2 fw-bold counter" data-target="6" data-suffix="+">0</div><div class="text-white-50">Modules</div></div></div>
+        <div class="col-6 col-md-3"><div class="kpi card-neo u-pink reveal"><div class="fs-2 fw-bold counter" data-target="100" data-suffix="%">0</div><div class="text-white-50">Uptime</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section sec-pricing">
+    <div class="blob" style="width:240px;height:240px;bottom:-50px;left:12%"></div>
+    <div class="container">
+      <div class="text-center mb-4 reveal">
+        <div class="divider mx-auto mb-3"></div>
+        <h2 class="mt-3 section-title">Simple plans</h2>
+        <div class="mt-2">
+          <label class="me-2">Monthly</label>
+          <input id="togglePlan" type="checkbox" />
+          <label class="btn btn-ghost btn-sm ms-2" for="togglePlan">Yearly <span class="badge bg-success">Save 20%</span></label>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="price-card card-neo u-green h-100 reveal">
+            <h5 class="mb-1">Membership Management</h5>
+            <div class="text-white-50">Everything to grow your community</div>
+            <div class="d-flex align-items-end gap-2 mt-3">
+              <div class="price" data-month="37" data-year="29">$37</div>
+              <div class="text-white-50">/ mo</div>
+            </div>
+            <hr class="border-secondary border-opacity-25"/>
+            <ul class="list-unstyled">
+              <li>✔ Plans & renewals</li>
+              <li>✔ Member portal</li>
+              <li>✔ Recurring payments</li>
+              <li>✔ Discount codes</li>
+              <li>✔ Email campaigns</li>
+            </ul>
+            <a href="#" class="btn btn-primary-neo w-100">Get Started</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="price-card card-neo u-amber h-100 reveal">
+            <h5 class="mb-1">Finance Management</h5>
+            <div class="text-white-50">Invoices, receipts & reports</div>
+            <div class="d-flex align-items-end gap-2 mt-3">
+              <div class="price" data-month="44" data-year="35">$44</div>
+              <div class="text-white-50">/ mo</div>
+            </div>
+            <hr class="border-secondary border-opacity-25"/>
+            <ul class="list-unstyled">
+              <li>✔ Invoices & quotes</li>
+              <li>✔ Multi-currency</li>
+              <li>✔ Bank import</li>
+              <li>✔ Expense claims</li>
+              <li>✔ General ledger</li>
+            </ul>
+            <a href="#" class="btn btn-ghost w-100">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section sec-faq">
+    <div class="blob" style="width:260px;height:260px;top:-70px;right:8%"></div>
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-5 reveal">
+          <h2 class="fw-bold mb-3 section-title">Frequently Asked Questions</h2>
+          <p class="text-white-50">Quick answers to common questions about modules, billing, and accounts.</p>
+          <div class="card-neo u-violet p-3">
+            <div class="small">Support Email</div>
+            <div class="fw-semibold">support@orbit.example</div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="accordion reveal" id="faqAcc">
+            <div class="accordion-item bg-transparent text-white border border-secondary border-opacity-25">
+              <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">What modules does ORBIT offer?</button></h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc"><div class="accordion-body text-white-75">Events, meetings, membership, finance, HR, and admin.</div></div>
+            </div>
+            <div class="accordion-item bg-transparent text-white border border-secondary border-opacity-25">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">Can I try before I buy?</button></h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body text-white-75">Yes, you can start with a free event.</div></div>
+            </div>
+            <div class="accordion-item bg-transparent text-white border border-opacity-25">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">Do you support recurring payments?</button></h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body text-white-75">Yes, recurring payments are supported.</div></div>
+            </div>
+            <div class="accordion-item bg-transparent text-white border border-opacity-25">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq4">Is multi-org or multi-role access available?</button></h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body text-white-75">Granular roles and permissions let you separate duties by team and module.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section sec-contact">
+    <div class="blob" style="width:280px;height:280px;bottom:-60px;left:12%"></div>
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6 reveal">
+          <div class="card-neo u-green p-4">
+            <h3 class="mb-2 section-title">Let’s work together</h3>
+            <p class="text-white-50">Share a bit about your goals. We’ll reach out within one business day.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 reveal">
+          <div class="form-wrap card-neo u-teal">
+            <form class="p-2">
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" placeholder="Jane Doe"/>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="you@company.com"/>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea rows="4" class="form-control" placeholder="Tell us what you’re planning..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary-neo">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="section" style="padding-top:40px;padding-bottom:24px;border-top:1px solid var(--line)">
+    <div class="container">
+      <div class="d-flex flex-column flex-sm-row justify-content-between small">
+        <div>© <span id="year"></span> ORBIT</div>
+        <div class="text-white-50">Made with Bootstrap 5</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Pricing toggle behavior
+    const toggle = document.getElementById('togglePlan');
+    const prices = document.querySelectorAll('.price');
+    const setPrices = () => {
+      prices.forEach(p => {
+        const month = p.getAttribute('data-month');
+        const year = p.getAttribute('data-year');
+        p.textContent = toggle && toggle.checked ? `$${year}` : `$${month}`;
+      });
+    };
+    if (toggle) toggle.addEventListener('change', setPrices);
+    setPrices();
+
+    // Counter animation
+    const counters=document.querySelectorAll('.counter');
+    const coi=new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting) return;
+        const el=entry.target;
+        const target=+el.dataset.target;
+        const suffix=el.dataset.suffix||'';
+        const dur=1200;
+        const start=performance.now();
+        function tick(now){
+          const p=Math.min(1,(now-start)/dur);
+          const value=Math.floor(target*p);
+          el.textContent=value+suffix;
+          if(p<1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        coi.unobserve(el);
+      });
+    },{threshold:.4});
+    counters.forEach(c=>coi.observe(c));
+
+    // Scroll reveal
+    const rev=document.querySelectorAll('.reveal');
+    const roi=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('revealed'); roi.unobserve(e.target); }
+      })
+    },{threshold:.15});
+    rev.forEach(el=>roi.observe(el));
+  </script>
+</body>
+</html>

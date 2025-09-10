@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BUP Dashboard — University Application Portal</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root{
+      --ink:#070b17;
+      --text:#e7eaf1;
+      --muted:#a3b2cc;
+      --line:rgba(255,255,255,.14);
+      --gl:rgba(255,255,255,.06);
+      --sky:#38bdf8;
+      --violet:#8b5cf6;
+      --pink:#ec4899;
+      --amber:#f59e0b;
+      --green:#22c55e;
+      --indigo:#6366f1;
+      --teal:#14b8a6;
+      --rose:#fb7185;
+      --cyan:#06b6d4;
+    }
+
+    :root{
+      --orbit-indigo:#4f46e5;
+      --orbit-indigo-2:#6366f1;
+      --orbit-dark:#0f172a;
+      --orbit-muted:#6b7280;
+      --orbit-bg:#0b1020;             /* darker canvas for contrast */
+      --orbit-card:#0f172a;
+      --orbit-glass: rgba(255,255,255,.06);
+      --orbit-border: rgba(255,255,255,.12);
+      --orbit-accent:#22c55e;
+      --orbit-sky:#38bdf8;
+      --orbit-pink:#ec4899;
+      --orbit-amber:#f59e0b;
+      --orbit-violet:#8b5cf6;
+    }
+
+    /* Base */
+    html,body{scroll-behavior:smooth;background:var(--orbit-bg);color:#e5e7eb;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";}
+    .container{max-width:1150px}
+    a, .btn-link {text-decoration:none}
+
+    /* Fancy gradient header background */
+    .site-top {
+      position: relative;
+      background:
+        radial-gradient(800px 300px at 80% -10%, rgba(79,70,229,.45), transparent 60%),
+        radial-gradient(700px 300px at 10% -20%, rgba(236,72,153,.35), transparent 60%),
+        linear-gradient(180deg, rgba(99,102,241,.18), transparent 35%);
+    }
+
+    /* Subtle grid overlay */
+    .grid-overlay::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image: linear-gradient(transparent 95%, rgba(255,255,255,.06) 95%), linear-gradient(90deg, transparent 95%, rgba(255,255,255,.06) 95%);
+      background-size: 22px 22px;
+      mask-image: radial-gradient(closest-side, rgba(0,0,0,.9), transparent 100%);
+      pointer-events:none;
+    }
+
+    /* Hero */
+    .hero{
+      position:relative;
+      padding:96px 0 48px;
+    }
+    .text-gradient{
+      background:linear-gradient(90deg,var(--orbit-sky),var(--orbit-violet),var(--orbit-pink));
+      -webkit-background-clip:text; background-clip:text; color:transparent
+    }
+    .btn-primary-neo{
+      background:linear-gradient(90deg,var(--orbit-indigo),var(--orbit-indigo-2));
+      border:0;color:#fff;
+      box-shadow:0 12px 30px rgba(99,102,241,.25);
+    }
+    .btn-primary-neo:hover{filter:brightness(1.05)}
+    .btn-ghost{border:1px solid var(--orbit-border); background:transparent; color:#fff}
+    .btn-ghost:hover{background:rgba(255,255,255,.06)}
+
+    /* Tile Cards (hero right) */
+    .tile{
+      border:1px solid var(--orbit-border);
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border-radius:18px;
+      padding:16px;
+      height:100%;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      backdrop-filter: blur(6px);
+    }
+    .tile:hover{ transform: translateY(-6px); border-color:rgba(99,102,241,.45); box-shadow:0 18px 40px rgba(2,6,23,.45); }
+    .badge-chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;border-radius:999px;font-size:.825rem;
+      border:1px solid var(--orbit-border); background:var(--orbit-glass)
+    }
+
+    /* Icon images */
+    .ico{
+      width:40px;height:40px; object-fit:contain; filter:drop-shadow(0 2px 6px rgba(0,0,0,.25));
+    }
+
+    html,body{scroll-behavior:smooth;background:var(--ink);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    .container{max-width:1150px}
+
+    /* Shared section wrapper */
+    .section{position:relative; padding:80px 0; overflow:hidden}
+    .section .section-title{font-family:Manrope,Inter,sans-serif;font-weight:800;letter-spacing:-.02em}
+    .divider{height:3px;width:70px;border-radius:999px;background:linear-gradient(90deg,var(--sky),var(--violet))}
+
+    /* Animated gradient blobs for each section */
+    @keyframes floaty { 0%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-10px) rotate(6deg)} 100%{transform:translateY(0) rotate(0)} }
+    @keyframes hue { 0%{filter:hue-rotate(0deg)} 100%{filter:hue-rotate(360deg)} }
+
+    .blob{position:absolute; border-radius:50%; filter: blur(30px); opacity:.35; animation: floaty 7s ease-in-out infinite}
+    .bg-lines::before{content:"";position:absolute;inset:0;
+      background-image:linear-gradient(transparent 95%, rgba(255,255,255,.05) 95%),linear-gradient(90deg, transparent 95%, rgba(255,255,255,.05) 95%);
+      background-size:22px 22px;pointer-events:none;opacity:.6}
+
+    /* Section-specific color backdrops */
+    .sec-main-apps{background:linear-gradient(180deg, rgba(20,184,166,.12), rgba(20,184,166,.02));}
+    .sec-affiliated{background:linear-gradient(90deg, rgba(99,102,241,.15), rgba(56,189,248,.15));}
+    .sec-internal{background:linear-gradient(180deg, rgba(236,72,153,.10), rgba(236,72,153,.02));}
+    .sec-department{background:radial-gradient(900px 300px at 10% -10%, rgba(56,189,248,.22), transparent 60%), radial-gradient(700px 260px at 90% 0%, rgba(139,92,246,.18), transparent 60%);}
+    .sec-seasonal{background:linear-gradient(180deg, rgba(245,158,11,.10), rgba(245,158,11,.02));}
+    .sec-unused{background:radial-gradient(600px 200px at 80% -10%, rgba(99,102,241,.22), transparent 60%), linear-gradient(180deg, rgba(99,102,241,.10), transparent 50%);}
+    .sec-todo{background:linear-gradient(180deg, rgba(34,197,94,.10), rgba(34,197,94,.02));}
+
+    /* Blob accents for other sections */
+    .sec-main-apps .blob{background:conic-gradient(from 45deg, rgba(20,184,166,.45), transparent 40%, rgba(6,182,212,.45))}
+    .sec-affiliated .blob{background:conic-gradient(from 120deg, rgba(99,102,241,.45), transparent 40%, rgba(56,189,248,.45))}
+    .sec-internal .blob{background:conic-gradient(from -60deg, rgba(236,72,153,.45), transparent 40%, rgba(251,113,133,.45))}
+    .sec-department .blob{background:conic-gradient(from 0deg, rgba(56,189,248,.45), transparent 40%, rgba(139,92,246,.45))}
+    .sec-seasonal .blob{background:conic-gradient(from 60deg, rgba(245,158,11,.45), transparent 40%, rgba(236,72,153,.45))}
+    .sec-unused .blob{background:conic-gradient(from 20deg, rgba(99,102,241,.45), transparent 40%, rgba(56,189,248,.45))}
+    .sec-todo .blob{background:conic-gradient(from 180deg, rgba(34,197,94,.45), transparent 40%, rgba(20,184,166,.45))}
+
+    /* Image-less, module-style cards for ALL sections */
+    .card-neo, .tile, .tcard, .kpi, .price-card, .form-wrap{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border-radius:18px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      backdrop-filter: blur(8px);
+    }
+    .card-neo:hover, .tile:hover, .tcard:hover, .kpi:hover, .price-card:hover, .form-wrap:hover{
+      transform:translateY(-6px) scale(1.01);
+      box-shadow:0 18px 50px rgba(2,6,23,.45);
+      border-color:rgba(99,102,241,.45);
+    }
+
+    /* Gradient energy on each card using ::before */
+    .card-neo::before, .tile::before, .tcard::before, .kpi::before, .price-card::before, .form-wrap::before{
+      content:""; position:absolute; inset:-20% -10% auto auto; height:140%; width:70%;
+      background:conic-gradient(from 90deg, rgba(99,102,241,.25), transparent 40%, rgba(56,189,248,.25));
+      filter:blur(26px); opacity:.35; pointer-events:none; border-radius:50%;
+      animation: hue 12s linear infinite;
+    }
+    /* Color variations by utility classes */
+    .u-teal::before{background:conic-gradient(from 45deg, rgba(20,184,166,.35), transparent 40%, rgba(6,182,212,.35))}
+    .u-pink::before{background:conic-gradient(from -30deg, rgba(236,72,153,.35), transparent 40%, rgba(251,113,133,.35))}
+    .u-amber::before{background:conic-gradient(from 60deg, rgba(245,158,11,.35), transparent 40%, rgba(236,72,153,.35))}
+    .u-green::before{background:conic-gradient(from 120deg, rgba(34,197,94,.35), transparent 40%, rgba(20,184,166,.35))}
+    .u-violet::before{background:conic-gradient(from 20deg, rgba(139,92,246,.35), transparent 40%, rgba(99,102,241,.35))}
+
+    /* Badges and buttons */
+    .badge-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--gl);font-size:.86rem}
+    .btn-ghost{border:1px solid var(--line);background:transparent;color:#fff}
+    .btn-ghost:hover{background:rgba(255,255,255,.08)}
+    .btn-primary-neo{background:linear-gradient(90deg,var(--indigo),#4f46e5);border:0;color:#fff;box-shadow:0 12px 30px rgba(99,102,241,.25)}
+    .btn-primary-neo:hover{filter:brightness(1.05)}
+
+    /* Testimonials layout card */
+    .tcard{padding:18px; position:relative}
+    .kpi{text-align:center; padding:22px}
+    .price-card{padding:24px}
+    .form-wrap{padding:28px}
+
+    /* Reveal on scroll */
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.revealed{opacity:1;transform:none}
+
+     /* Minimal arrow buttons */
+    .round-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--orbit-border);background:transparent;color:#fff}
+    .round-btn:hover{background:rgba(255,255,255,.08)}
+
+    /* Application card styles */
+    .app-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    .app-card:hover {
+      transform: translateY(-5px);
+    }
+    .app-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--orbit-sky);
+    }
+    .app-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .app-description {
+      color: var(--muted);
+      font-size: 0.9rem;
+      flex-grow: 1;
+    }
+    .app-link {
+      margin-top: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--orbit-sky);
+      text-decoration: none;
+    }
+    .app-link:hover {
+      color: var(--orbit-violet);
+    }
+    
+    /* Search bar */
+    .search-container {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--orbit-border);
+      border-radius: 50px;
+      color: white;
+      padding-left: 45px;
+    }
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+    }
+    
+    /* Quick access section */
+    .quick-access {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .quick-access-btn {
+      padding: 8px 15px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--orbit-border);
+      border-radius: 20px;
+      color: white;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+    .quick-access-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    /* Section headers */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top mini header -->
+  <div class="site-top grid-overlay">
+    <div class="container py-2 d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <a class="badge-chip" href="#main-apps">Main Apps</a>
+        <a class="badge-chip" href="#affiliated">Affiliated</a>
+        <a class="badge-chip" href="#department">Department</a>
+        <a class="badge-chip" href="#todo">To-Do</a>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <a class="btn btn-ghost btn-sm" href="#">Staff Login</a>
+        <a class="btn btn-primary-neo btn-sm" href="#">Student Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="navbar navbar-expand-lg sticky-top" style="backdrop-filter: blur(10px); background: rgba(11,16,32,.75); border-bottom:1px solid var(--orbit-border)">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white" href="#">
+        <!-- SVG logo -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="url(#g1)" xmlns="http://www.w3.org/2000/svg" class="me-2">
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
+          <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 17.93V20a1 1 0 0 1-2 0v-.07A8 8 0 0 1 4.07 13H4a1 1 0 0 1 0-2h.07A8 8 0 0 1 11 4.07V4a1 1 0 0 1 2 0v.07A8 8 0 0 1 19.93 11H20a1 1 0 0 1 0 2h-.07A8 8 0 0 1 13 19.93Z"/>
+        </svg>
+        BUP DASHBOARD
+      </a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-white-50" href="#main-apps">Main Apps</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#affiliated">Affiliated</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#internal">Internal</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#department">Department</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#seasonal">Seasonal</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5 reveal">
+          <span class="badge-chip">BUP Application Portal</span>
+          <h1 class="mt-3 mb-3 display-6 fw-bold text-gradient">University Dashboard</h1>
+          <p class="lead text-white-50">Access all BUP applications and services from one centralized platform.</p>
+          
+          <!-- Search Bar -->
+          <div class="search-container mt-4">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="Search for applications...">
+          </div>
+          
+          <!-- Quick Access -->
+          <div class="quick-access mt-3">
+            <a href="https://ucam.bup.edu.bd/" class="quick-access-btn">UCAM</a>
+            <a href="https://hr.bup.edu.bd/" class="quick-access-btn">PIMS</a>
+            <a href="https://admission.bup.edu.bd/" class="quick-access-btn">Admission</a>
+            <a href="https://library.bup.edu.bd/" class="quick-access-btn">Library</a>
+            <a href="https://outlook.office.com/" class="quick-access-btn">Outlook</a>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <!-- 6 quick access tiles -->
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <i class="fas fa-graduation-cap app-icon"></i>
+              <div class="fw-semibold">Student Portal</div>
+              <a href="https://ucam.bup.edu.bd/" class="app-link">Access <i class="fas fa-arrow-right"></i></a>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <i class="fas fa-user-tie app-icon"></i>
+              <div class="fw-semibold">HR Portal</div>
+              <a href="https://hr.bup.edu.bd/" class="app-link">Access <i class="fas fa-arrow-right"></i></a>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <i class="fas fa-book app-icon"></i>
+              <div class="fw-semibold">Library</div>
+              <a href="https://library.bup.edu.bd/" class="app-link">Access <i class="fas fa-arrow-right"></i></a>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <i class="fas fa-envelope app-icon"></i>
+              <div class="fw-semibold">Email</div>
+              <a href="https://outlook.office.com/" class="app-link">Access <i class="fas fa-arrow-right"></i></a>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <i class="fas fa-file-alt app-icon"></i>
+              <div class="fw-semibold">Turnitin</div>
+              <a href="https://www.turnitin.com/" class="app-link">Access <i class="fas fa-arrow-right"></i></a>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <i class="fas fa-video app-icon"></i>
+              <div class="fw-semibold">Zoom</div>
+              <a href="https://bdren.zoom.us/" class="app-link">Access <i class="fas fa-arrow-right"></i></a>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APPLICATIONS -->
+  <section id="main-apps" class="section sec-main-apps">
+    <div class="blob" style="width:280px;height:280px;top:-60px;left:8%"></div>
+    <div class="blob" style="width:200px;height:200px;bottom:-40px;right:12%;animation-delay:.4s"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <div class="divider mb-3"></div>
+          <h2 class="mt-3 fw-bold section-title">Main Applications</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-teal reveal app-card">
+            <i class="fas fa-globe app-icon"></i>
+            <h6 class="app-title">BUP Main Website</h6>
+            <p class="app-description">Official website of Bangladesh University of Professionals</p>
+            <a href="https://www.bup.edu.bd/" class="app-link">Visit Website <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-violet reveal app-card">
+            <i class="fas fa-user-graduate app-icon"></i>
+            <h6 class="app-title">UCAM</h6>
+            <p class="app-description">University Course and Admission Management System</p>
+            <a href="https://ucam.bup.edu.bd/" class="app-link">Access Portal <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-pink reveal app-card">
+            <i class="fas fa-users app-icon"></i>
+            <h6 class="app-title">PIMS</h6>
+            <p class="app-description">Personnel Information Management System</p>
+            <a href="https://hr.bup.edu.bd/" class="app-link">Access HR <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-amber reveal app-card">
+            <i class="fas fa-book-open app-icon"></i>
+            <h6 class="app-title">Journal</h6>
+            <p class="app-description">BUP Journal Publications</p>
+            <a href="http://journal.bup.edu.bd/" class="app-link">View Journals <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-green reveal app-card">
+            <i class="fas fa-university app-icon"></i>
+            <h6 class="app-title">Admission</h6>
+            <p class="app-description">BUP Admission Portal</p>
+            <a href="https://admission.bup.edu.bd/" class="app-link">Apply Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-violet reveal app-card">
+            <i class="fas fa-book-reader app-icon"></i>
+            <h6 class="app-title">Library</h6>
+            <p class="app-description">BUP Digital Library Resources</p>
+            <a href="https://library.bup.edu.bd/" class="app-link">Access Library <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-teal reveal app-card">
+            <i class="fas fa-envelope app-icon"></i>
+            <h6 class="app-title">Outlook</h6>
+            <p class="app-description">Official Email Service</p>
+            <a href="https://outlook.office.com/" class="app-link">Check Email <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-pink reveal app-card">
+            <i class="fas fa-file-alt app-icon"></i>
+            <h6 class="app-title">Turnitin</h6>
+            <p class="app-description">Plagiarism Checker and Academic Integrity</p>
+            <a href="https://www.turnitin.com/" class="app-link">Access Tool <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-amber reveal app-card">
+            <i class="fas fa-video app-icon"></i>
+            <h6 class="app-title">Zoom</h6>
+            <p class="app-description">Video Conferencing Platform</p>
+            <a href="https://bdren.zoom.us/" class="app-link">Join Meeting <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AFFILIATED APPLICATIONS -->
+  <section id="affiliated" class="section sec-affiliated">
+    <div class="blob" style="width:260px;height:260px;top:-60px;right:14%"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <div class="divider mb-3"></div>
+          <h2 class="mt-3 fw-bold section-title">Affiliated Applications</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-violet reveal app-card">
+            <i class="fas fa-clipboard-list app-icon"></i>
+            <h6 class="app-title">Affiliated Registration</h6>
+            <p class="app-description">Registration portal for affiliated colleges</p>
+            <a href="https://afregistration.bup.edu.bd/" class="app-link">Register <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-teal reveal app-card">
+            <i class="fas fa-chalkboard-teacher app-icon"></i>
+            <h6 class="app-title">Inspector of Colleges</h6>
+            <p class="app-description">Management system for college inspectors</p>
+            <a href="https://ioc.bup.edu.bd/" class="app-link">Access System <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-pink reveal app-card">
+            <i class="fas fa-user-graduate app-icon"></i>
+            <h6 class="app-title">BA/BSS Program Registration</h6>
+            <p class="app-description">Registration for BA/BSS programs</p>
+            <a href="https://babss.bup.edu.bd/" class="app-link">Register <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-amber reveal app-card">
+            <i class="fas fa-boxes app-icon"></i>
+            <h6 class="app-title">Inventory</h6>
+            <p class="app-description">University inventory management system</p>
+            <a href="https://inventory.bup.edu.bd/" class="app-link">Manage Inventory <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERNAL APPLICATIONS -->
+  <section id="internal" class="section sec-internal">
+    <div class="blob" style="width:280px;height:280px;bottom:-60px;left:8%"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <div>
+          <div class="divider mb-3"></div>
+          <h2 class="mt-3 fw-bold section-title">Internal Applications</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-pink reveal app-card">
+            <i class="fas fa-warehouse app-icon"></i>
+            <h6 class="app-title">Inventory</h6>
+            <p class="app-description">University inventory management system</p>
+            <a href="https://inventory.bup.edu.bd/" class="app-link">Access System <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-teal reveal app-card">
+            <i class="fas fa-car app-icon"></i>
+            <h6 class="app-title">Vehicle Requisition</h6>
+            <p class="app-description">Vehicle management and requisition system</p>
+            <a href="https://vrms.bup.edu.bd/" class="app-link">Request Vehicle <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-violet reveal app-card">
+            <i class="fas fa-concierge-bell app-icon"></i>
+            <h6 class="app-title">One Stop Service</h6>
+            <p class="app-description">Centralized service portal for students and staff</p>
+            <a href="https://onestopservice.bup.edu.bd/" class="app-link">Access Services <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-amber reveal app-card">
+            <i class="fas fa-book app-icon"></i>
+            <h6 class="app-title">e-Book</h6>
+            <p class="app-description">Digital library and e-book resources</p>
+            <a href="http://ebook.bup.edu.bd/" class="app-link">Read Books <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- INTERNAL APPLICATIONS -->
+<section id="internal" class="section sec-internal">
+  <div class="blob" style="width:260px;height:260px;top:-60px;left:10%"></div>
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <div class="divider mb-3"></div>
+        <h2 class="mt-3 fw-bold section-title">Internal Applications</h2>
+      </div>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-green reveal app-card">
+          <i class="fas fa-boxes app-icon"></i>
+          <h6 class="app-title">Inventory</h6>
+          <p class="app-description">Internal inventory management system</p>
+          <a href="https://inventory.bup.edu.bd/" class="app-link">Open <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-teal reveal app-card">
+          <i class="fas fa-car-side app-icon"></i>
+          <h6 class="app-title">Vehicle Requisition</h6>
+          <p class="app-description">Request and track vehicles</p>
+          <a href="https://vrms.bup.edu.bd/" class="app-link">Request <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-amber reveal app-card">
+          <i class="fas fa-concierge-bell app-icon"></i>
+          <h6 class="app-title">One Stop Service</h6>
+          <p class="app-description">Centralized support services</p>
+          <a href="https://onestopservice.bup.edu.bd/" class="app-link">Access <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-pink reveal app-card">
+          <i class="fas fa-book-reader app-icon"></i>
+          <h6 class="app-title">e-Book</h6>
+          <p class="app-description">Digital learning resources</p>
+          <a href="http://ebook.bup.edu.bd/" class="app-link">Read Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-violet reveal app-card">
+          <i class="fas fa-tasks app-icon"></i>
+          <h6 class="app-title">To Do List</h6>
+          <p class="app-description">Manage daily tasks</p>
+          <a href="#" class="app-link">Manage <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-red reveal app-card">
+          <i class="fas fa-bug app-icon"></i>
+          <h6 class="app-title">Issues</h6>
+          <p class="app-description">Track and resolve issues</p>
+          <a href="#" class="app-link">Report <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTMENT APPLICATIONS -->
+<section id="department" class="section sec-department">
+  <div class="blob" style="width:260px;height:260px;bottom:-60px;right:12%"></div>
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <div class="divider mb-3"></div>
+        <h2 class="mt-3 fw-bold section-title">Department Applications</h2>
+      </div>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-amber reveal app-card">
+          <i class="fas fa-money-check-alt app-icon"></i>
+          <h6 class="app-title">Payroll</h6>
+          <p class="app-description">Salary and payroll management</p>
+          <a href="https://payroll.bup.edu.bd/" class="app-link">Access <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-green reveal app-card">
+          <i class="fas fa-user-check app-icon"></i>
+          <h6 class="app-title">Pass-Out</h6>
+          <p class="app-description">Student pass-out process</p>
+          <a href="https://passout.bup.edu.bd/" class="app-link">Manage <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-violet reveal app-card">
+          <i class="fas fa-chart-line app-icon"></i>
+          <h6 class="app-title">APA Management</h6>
+          <p class="app-description">Annual Performance Agreement</p>
+          <a href="https://apa.bup.edu.bd/" class="app-link">View <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-pink reveal app-card">
+          <i class="fas fa-calendar-alt app-icon"></i>
+          <h6 class="app-title">Event</h6>
+          <p class="app-description">Manage BUP events</p>
+          <a href="http://event.bup.edu.bd/" class="app-link">Open <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-teal reveal app-card">
+          <i class="fas fa-flask app-icon"></i>
+          <h6 class="app-title">CHSR</h6>
+          <p class="app-description">Center for Higher Studies & Research</p>
+          <a href="http://chsr.bup.edu.bd/" class="app-link">Explore <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-red reveal app-card">
+          <i class="fas fa-utensils app-icon"></i>
+          <h6 class="app-title">Mess</h6>
+          <p class="app-description">Mess management system</p>
+          <a href="https://mess.bup.edu.bd/" class="app-link">Open <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SEASONAL APPLICATIONS -->
+<section id="seasonal" class="section sec-seasonal">
+  <div class="blob" style="width:240px;height:240px;top:-40px;left:15%"></div>
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <div class="divider mb-3"></div>
+        <h2 class="mt-3 fw-bold section-title">Seasonal Applications</h2>
+      </div>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-violet reveal app-card">
+          <i class="fas fa-globe app-icon"></i>
+          <h6 class="app-title">ICICT4SD</h6>
+          <p class="app-description">Conference registration system</p>
+          <a href="https://icict4sd.bup.edu.bd/" class="app-link">Register <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-amber reveal app-card">
+          <i class="fas fa-graduation-cap app-icon"></i>
+          <h6 class="app-title">Convocation</h6>
+          <p class="app-description">Convocation registration portal</p>
+          <a href="https://convocation.bup.edu.bd/" class="app-link">Register <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-teal reveal app-card">
+          <i class="fas fa-users app-icon"></i>
+          <h6 class="app-title">Alumni Registration</h6>
+          <p class="app-description">Portal for BUP alumni</p>
+          <a href="https://alumni.bup.edu.bd/" class="app-link">Join <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- UN-USED APPLICATIONS -->
+<section id="unused" class="section sec-unused">
+  <div class="blob" style="width:220px;height:220px;bottom:-50px;right:18%"></div>
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <div class="divider mb-3"></div>
+        <h2 class="mt-3 fw-bold section-title">Un-Used Applications</h2>
+      </div>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-red reveal app-card">
+          <i class="fas fa-utensils app-icon"></i>
+          <h6 class="app-title">Mess Management</h6>
+          <p class="app-description">Unused mess system</p>
+          <a href="https://mess.bup.edu.bd/" class="app-link">View <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-pink reveal app-card">
+          <i class="fas fa-laptop-code app-icon"></i>
+          <h6 class="app-title">LMS</h6>
+          <p class="app-description">Unused learning management system</p>
+          <a href="https://lms.bup.edu.bd/" class="app-link">View <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card-neo u-green reveal app-card">
+          <i class="fas fa-shopping-cart app-icon"></i>
+          <h6 class="app-title">Procurement</h6>
+          <p class="app-description">Unused procurement system</p>
+          <a href="https://procurement.bup.edu.bd/" class="app-link">View <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <footer class="section" style="padding-top:40px;padding-bottom:24px;border-top:1px solid var(--line)">
+    <div class="container">
+      <div class="d-flex flex-column flex-sm-row justify-content-between small">
+        <div>© <span id="year"></span> ORBIT</div>
+        <div class="text-white-50">Made with Bootstrap 5</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Pricing toggle behavior
+    const toggle = document.getElementById('togglePlan');
+    const prices = document.querySelectorAll('.price');
+    const setPrices = () => {
+      prices.forEach(p => {
+        const month = p.getAttribute('data-month');
+        const year = p.getAttribute('data-year');
+        p.textContent = toggle && toggle.checked ? `$${year}` : `$${month}`;
+      });
+    };
+    if (toggle) toggle.addEventListener('change', setPrices);
+    setPrices();
+
+    // Counter animation
+    const counters=document.querySelectorAll('.counter');
+    const coi=new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting) return;
+        const el=entry.target;
+        const target=+el.dataset.target;
+        const suffix=el.dataset.suffix||'';
+        const dur=1200;
+        const start=performance.now();
+        function tick(now){
+          const p=Math.min(1,(now-start)/dur);
+          const value=Math.floor(target*p);
+          el.textContent=value+suffix;
+          if(p<1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        coi.unobserve(el);
+      });
+    },{threshold:.4});
+    counters.forEach(c=>coi.observe(c));
+
+    // Scroll reveal
+    const rev=document.querySelectorAll('.reveal');
+    const roi=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('revealed'); roi.unobserve(e.target); }
+      })
+    },{threshold:.15});
+    rev.forEach(el=>roi.observe(el));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ORBIT — Enhanced v3 (BUP Dashboard Integration)</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+  <style>
+    
+
+  </style>
+</head>
+<body>
+
+  <!-- Top mini header -->
+  <div class="site-top grid-overlay">
+    <div class="container py-2 d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-3">
+        <a class="badge-chip" href="#apps">Applications</a>
+        <a class="badge-chip" href="#modules">Modules</a>
+        <a class="badge-chip" href="#faq">FAQ</a>
+        <a class="badge-chip" href="#contact">Contact</a>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <a class="btn btn-ghost btn-sm" href="#">Login</a>
+        <a class="btn btn-primary-neo btn-sm" href="#">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="navbar navbar-expand-lg sticky-top" style="backdrop-filter: blur(10px); background: rgba(11,16,32,.75); border-bottom:1px solid var(--orbit-border)">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white" href="#">
+        <!-- SVG logo -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="url(#g1)" xmlns="http://www.w3.org/2000/svg" class="me-2">
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
+          <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 17.93V20a1 1 0 0 1-2 0v-.07A8 8 0 0 1 4.07 13H4a1 1 0 0 1 0-2h.07A8 8 0 0 1 11 4.07V4a1 1 0 0 1 2 0v.07A8 8 0 0 1 19.93 11H20a1 1 0 0 1 0 2h-.07A8 8 0 0 1 13 19.93Z"/>
+        </svg>
+        ORBIT
+      </a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-white-50" href="#apps">Applications</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#modules">Modules</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#testimonials">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#stats">Stats</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50" href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5 reveal">
+          <span class="badge-chip">One-stop Resources</span>
+          <h1 class="mt-3 mb-3 display-6 fw-bold text-gradient">BUP Dashboard — Central Apps & Tools</h1>
+          <p class="lead text-white-50">All BUP links in one fast, organized place. Tap. Go. Done.</p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="#apps" class="btn btn-primary-neo btn-lg">Open Applications</a>
+            <a href="#modules" class="btn btn-ghost btn-lg">Browse Modules</a>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <!-- 6 tiles -->
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4c5.svg" alt="calendar"/>
+              <div class="fw-semibold">Event Management</div>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4ac.svg" alt="meeting"/>
+              <div class="fw-semibold">Meeting Management</div>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f465.svg" alt="membership"/>
+              <div class="fw-semibold">Membership</div>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4b0.svg" alt="finance"/>
+              <div class="fw-semibold">Finance</div>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f9d1-200d-1f4bc.svg" alt="hr"/>
+              <div class="fw-semibold">Human Resource</div>
+            </div></div>
+            <div class="col-6 col-md-4"><div class="tile reveal">
+              <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/2699.svg" alt="admin"/>
+              <div class="fw-semibold">Administration</div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- APPLICATIONS HUB -->
+  <section id="apps" class="section sec-apps">
+    <div class="blob" style="width:280px;height:280px;top:-60px;left:8%"></div>
+    <div class="blob" style="width:220px;height:220px;bottom:-40px;right:12%;animation-delay:.4s"></div>
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <div class="divider mx-auto mb-3"></div>
+        <h2 class="mt-3 fw-bold section-title">Applications</h2>
+        <div class="title-underline"></div>
+        <p class="text-white-50 mb-0">Quick-launch cards for every BUP system.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Main Applications -->
+        <div class="col-lg-6">
+          <div class="link-card u-violet reveal">
+            <h6 class="d-flex align-items-center gap-2"><span class="dot"></span> Main Applications</h6>
+            <div class="title-underline"></div>
+            <p class="desc small mb-3">Daily essentials for staff and students.</p>
+            <div class="app-links">
+              <a class="app-link" href="https://dashboard.bup.edu.bd/#" target="_blank" rel="noopener">Dashboard</a>
+              <a class="app-link" href="https://www.bup.edu.bd/" target="_blank" rel="noopener">BUP Main Website</a>
+              <a class="app-link" href="https://ucam.bup.edu.bd/" target="_blank" rel="noopener">UCAM</a>
+              <a class="app-link" href="https://hr.bup.edu.bd/" target="_blank" rel="noopener">PIMS</a>
+              <a class="app-link" href="http://journal.bup.edu.bd/" target="_blank" rel="noopener">Journal</a>
+              <a class="app-link" href="https://admission.bup.edu.bd/" target="_blank" rel="noopener">Admission</a>
+              <a class="app-link" href="https://library.bup.edu.bd/" target="_blank" rel="noopener">Library</a>
+              <a class="app-link" href="https://outlook.office.com/" target="_blank" rel="noopener">Outlook</a>
+              <a class="app-link" href="https://www.turnitin.com/" target="_blank" rel="noopener">Turnitin</a>
+              <a class="app-link" href="https://bdren.zoom.us/" target="_blank" rel="noopener">Zoom</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Affiliated Applications -->
+        <div class="col-lg-6">
+          <div class="link-card u-teal reveal">
+            <h6 class="d-flex align-items-center gap-2"><span class="dot"></span> Affiliated Applications</h6>
+            <p class="desc small mb-3">For affiliated colleges and programs.</p>
+            <div class="app-links">
+              <a class="app-link" href="https://afregistration.bup.edu.bd/" target="_blank" rel="noopener">Affiliated Registration</a>
+              <a class="app-link" href="https://ioc.bup.edu.bd/" target="_blank" rel="noopener">Inspector of Colleges</a>
+              <a class="app-link" href="https://babss.bup.edu.bd/" target="_blank" rel="noopener">BA/BSS Registration</a>
+              <a class="app-link" href="https://inventory.bup.edu.bd/" target="_blank" rel="noopener">Inventory</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Internal Applications -->
+        <div class="col-lg-6">
+          <div class="link-card u-amber reveal">
+            <h6 class="d-flex align-items-center gap-2"><span class="dot"></span> Internal Applications</h6>
+            <p class="desc small mb-3">Tools for internal operations and services.</p>
+            <div class="app-links">
+              <a class="app-link" href="https://inventory.bup.edu.bd/" target="_blank" rel="noopener">Inventory</a>
+              <a class="app-link" href="https://vrms.bup.edu.bd/" target="_blank" rel="noopener">Vehicle Requisition</a>
+              <a class="app-link" href="https://onestopservice.bup.edu.bd/" target="_blank" rel="noopener">One Stop Service</a>
+              <a class="app-link" href="http://ebook.bup.edu.bd/" target="_blank" rel="noopener">e-Book</a>
+              <span class="app-link" title="Coming soon">To Do List</span>
+              <span class="app-link" title="Coming soon">Issues</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Department Applications -->
+        <div class="col-lg-6">
+          <div class="link-card u-green reveal">
+            <h6 class="d-flex align-items-center gap-2"><span class="dot"></span> Department Applications</h6>
+            <p class="desc small mb-3">Department-level systems and utilities.</p>
+            <div class="app-links">
+              <a class="app-link" href="https://payroll.bup.edu.bd/" target="_blank" rel="noopener">Payroll</a>
+              <a class="app-link" href="https://passout.bup.edu.bd/" target="_blank" rel="noopener">Pass-Out</a>
+              <a class="app-link" href="https://apa.bup.edu.bd/" target="_blank" rel="noopener">APA Management</a>
+              <a class="app-link" href="http://event.bup.edu.bd/" target="_blank" rel="noopener">Event</a>
+              <a class="app-link" href="http://chsr.bup.edu.bd/" target="_blank" rel="noopener">CHSR</a>
+              <a class="app-link" href="https://mess.bup.edu.bd/" target="_blank" rel="noopener">Mess</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seasonal Applications -->
+        <div class="col-lg-6">
+          <div class="link-card u-pink reveal">
+            <h6 class="d-flex align-items-center gap-2"><span class="dot"></span> Seasonal Applications</h6>
+            <p class="desc small mb-3">Active during specific academic cycles.</p>
+            <div class="app-links">
+              <a class="app-link" href="https://icict4sd.bup.edu.bd/" target="_blank" rel="noopener">ICICT4SD</a>
+              <a class="app-link" href="https://convocation.bup.edu.bd/" target="_blank" rel="noopener">Convocation Registration</a>
+              <a class="app-link" href="https://alumni.bup.edu.bd/" target="_blank" rel="noopener">Alumni Registration</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Un-Used Applications -->
+        <div class="col-lg-6">
+          <div class="link-card u-violet reveal">
+            <h6 class="d-flex align-items-center gap-2"><span class="dot"></span> Un-Used Applications</h6>
+            <p class="desc small mb-3">Currently inactive or deprecated.</p>
+            <div class="app-links">
+              <a class="app-link" href="https://mess.bup.edu.bd/" target="_blank" rel="noopener">Mess Management</a>
+              <a class="app-link" href="https://lms.bup.edu.bd/" target="_blank" rel="noopener">LMS</a>
+              <a class="app-link" href="https://procurement.bup.edu.bd/" target="_blank" rel="noopener">Procurement</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back Office -->
+        <div class="col-12">
+          <div class="link-card u-amber reveal">
+            <h6 class="d-flex align-items-center gap-2"><span class="dot"></span> Back-Office Applications</h6>
+            <p class="desc small mb-3">Admin-side platforms and infrastructure.</p>
+            <div class="app-links">
+              <span class="app-link" title="Use your institutional sign-in">Microsoft 365</span>
+              <span class="app-link">Web Manage</span>
+              <span class="app-link">Koha</span>
+              <span class="app-link">Stagging Server</span>
+              <span class="app-link">Old Website</span>
+              <span class="app-link">Database</span>
+              <span class="app-link">Event</span>
+              <span class="app-link">Suggestion</span>
+              <span class="app-link">Website Backend</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick CTA -->
+      <div class="mt-4">
+        <a href="#contact" class="btn btn-primary-neo">Request a new app link</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <section id="modules" class="section sec-modules">
+    <div class="blob" style="width:280px;height:280px;top:-60px;left:8%"></div>
+    <div class="blob" style="width:200px;height:200px;bottom:-40px;right:12%;animation-delay:.4s"></div>
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <div class="divider mx-auto mb-3"></div>
+        <h2 class="mt-3 fw-bold section-title">ORBIT Modules</h2>
+        <p class="text-white-50">Image-less cards with animated gradient energy.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-teal reveal p-3">
+            <h6 class="mb-1">Event Management</h6>
+            <p class="text-white-75 mb-2">Ticketing, attendance, emails, and reports.</p>
+            <div class="d-flex flex-wrap gap-2 small"><span class="badge-chip">tickets</span><span class="badge-chip">check-in</span><span class="badge-chip">emails</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-violet reveal p-3">
+            <h6 class="mb-1">Meeting Management</h6>
+            <p class="text-white-75 mb-2">Agendas, invites, minutes, follow-ups.</p>
+            <div class="d-flex flex-wrap gap-2 small"><span class="badge-chip">agenda</span><span class="badge-chip">notes</span><span class="badge-chip">reminders</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-pink reveal p-3">
+            <h6 class="mb-1">Membership</h6>
+            <p class="text-white-75 mb-2">Plans, renewals, payments, member portal.</p>
+            <div class="d-flex flex-wrap gap-2 small"><span class="badge-chip">portal</span><span class="badge-chip">renewals</span><span class="badge-chip">payments</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-amber reveal p-3">
+            <h6 class="mb-1">Finance</h6>
+            <p class="text-white-75 mb-2">Invoices, receipts, analytics, clean reports.</p>
+            <div class="d-flex flex-wrap gap-2 small"><span class="badge-chip">invoices</span><span class="badge-chip">ledger</span><span class="badge-chip">reports</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-green reveal p-3">
+            <h6 class="mb-1">Human Resource</h6>
+            <p class="text-white-75 mb-2">Recruitment, attendance, leave, reviews.</p>
+            <div class="d-flex flex-wrap gap-2 small"><span class="badge-chip">attendance</span><span class="badge-chip">leave</span><span class="badge-chip">reviews</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-neo u-violet reveal p-3">
+            <h6 class="mb-1">Administration</h6>
+            <p class="text-white-75 mb-2">Roles, permissions, audit logs, settings.</p>
+            <div class="d-flex flex-wrap gap-2 small"><span class="badge-chip">roles</span><span class="badge-chip">audit</span><span class="badge-chip">settings</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section sec-cta">
+    <div class="blob" style="width:260px;height:260px;top:-60px;right:14%"></div>
+    <div class="container">
+      <div class="card-neo u-violet reveal p-4 p-md-5">
+        <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+          <div>
+            <h3 class="mb-1 section-title">Experience the Difference</h3>
+            <p class="mb-0 text-white-75">Start with a free event. Ship in minutes.</p>
+          </div>
+          <a href="#apps" class="btn btn-primary-neo fw-semibold">Open Apps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section sec-testimonials">
+    <div class="blob" style="width:280px;height:280px;bottom:-60px;left:8%"></div>
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-4 reveal">
+          <span class="badge-chip">What people say</span>
+          <h3 class="mt-3 fw-bold section-title">Trusted by teams big and small</h3>
+          <p class="text-white-50">Real comments from real people.</p>
+          <div class="d-flex gap-2">
+            <button class="round-btn" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev" aria-label="Previous">‹</button>
+            <button class="round-btn" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next" aria-label="Next">›</button>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row g-3">
+                  <div class="col-md-6"><div class="tcard card-neo u-pink reveal">
+                    <p class="mb-2">“Billing and reporting that our finance team actually likes.”</p>
+                    <small class="text-white-50">Samir Khan • Finance Lead</small>
+                  </div></div>
+                  <div class="col-md-6"><div class="tcard card-neo u-teal reveal">
+                    <p class="mb-2">“Member renewals improved without extra effort from staff.”</p>
+                    <small class="text-white-50">Nadia Rahman • Community</small>
+                  </div></div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row g-3">
+                  <div class="col-md-6"><div class="tcard card-neo u-amber reveal">
+                    <p class="mb-2">“ORBIT is a must-have app for organizing events with ease.”</p>
+                    <small class="text-white-50">Eugenia Moore • Founder</small>
+                  </div></div>
+                  <div class="col-md-6"><div class="tcard card-neo u-violet reveal">
+                    <p class="mb-2">“Simplifies planning with intuitive tools and smooth coordination.”</p>
+                    <small class="text-white-50">Eugenia Moore • Ops Lead</small>
+                  </div></div>
+                </div>
+              </div>
+            </div>
+          </div><!-- /carousel -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats" class="section sec-stats">
+    <div class="blob" style="width:240px;height:240px;top:-60px;right:10%"></div>
+    <div class="container text-center">
+      <h3 class="mb-4 fw-bold section-title reveal">Our Achievements</h3>
+      <div class="row g-3">
+        <div class="col-6 col-md-3"><div class="kpi card-neo u-teal reveal"><div class="fs-2 fw-bold counter" data-target="10" data-suffix="+">0</div><div class="text-white-50">Years</div></div></div>
+        <div class="col-6 col-md-3"><div class="kpi card-neo u-violet reveal"><div class="fs-2 fw-bold counter" data-target="2000" data-suffix="+">0</div><div class="text-white-50">Clients</div></div></div>
+        <div class="col-6 col-md-3"><div class="kpi card-neo u-amber reveal"><div class="fs-2 fw-bold counter" data-target="6" data-suffix="+">0</div><div class="text-white-50">Modules</div></div></div>
+        <div class="col-6 col-md-3"><div class="kpi card-neo u-pink reveal"><div class="fs-2 fw-bold counter" data-target="100" data-suffix="%">0</div><div class="text-white-50">Uptime</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section sec-pricing">
+    <div class="blob" style="width:240px;height:240px;bottom:-50px;left:12%"></div>
+    <div class="container">
+      <div class="text-center mb-4 reveal">
+        <div class="divider mx-auto mb-3"></div>
+        <h2 class="mt-3 section-title">Simple plans</h2>
+        <div class="mt-2">
+          <label class="me-2">Monthly</label>
+          <input id="togglePlan" type="checkbox" />
+          <label class="btn btn-ghost btn-sm ms-2" for="togglePlan">Yearly <span class="badge bg-success">Save 20%</span></label>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="price-card card-neo u-green h-100 reveal">
+            <h5 class="mb-1">Membership Management</h5>
+            <div class="text-white-50">Everything to grow your community</div>
+            <div class="d-flex align-items-end gap-2 mt-3">
+              <div class="price" data-month="37" data-year="29">$37</div>
+              <div class="text-white-50">/ mo</div>
+            </div>
+            <hr class="border-secondary border-opacity-25"/>
+            <ul class="list-unstyled">
+              <li>✔ Plans & renewals</li>
+              <li>✔ Member portal</li>
+              <li>✔ Recurring payments</li>
+              <li>✔ Discount codes</li>
+              <li>✔ Email campaigns</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary-neo w-100">Get Started</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="price-card card-neo u-amber h-100 reveal">
+            <h5 class="mb-1">Finance Management</h5>
+            <div class="text-white-50">Invoices, receipts & reports</div>
+            <div class="d-flex align-items-end gap-2 mt-3">
+              <div class="price" data-month="44" data-year="35">$44</div>
+              <div class="text-white-50">/ mo</div>
+            </div>
+            <hr class="border-secondary border-opacity-25"/>
+            <ul class="list-unstyled">
+              <li>✔ Invoices & quotes</li>
+              <li>✔ Multi-currency</li>
+              <li>✔ Bank import</li>
+              <li>✔ Expense claims</li>
+              <li>✔ General ledger</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost w-100">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section sec-faq">
+    <div class="blob" style="width:260px;height:260px;top:-70px;right:8%"></div>
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-5 reveal">
+          <h2 class="fw-bold mb-3 section-title">Frequently Asked Questions</h2>
+          <p class="text-white-50">Quick answers to common questions about modules, billing, and accounts.</p>
+          <div class="card-neo u-violet p-3">
+            <div class="small">Support Email</div>
+            <div class="fw-semibold">support@orbit.example</div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="accordion reveal" id="faqAcc">
+            <div class="accordion-item bg-transparent text-white border border-secondary border-opacity-25">
+              <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">What modules does ORBIT offer?</button></h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc"><div class="accordion-body text-white-75">Events, meetings, membership, finance, HR, and admin.</div></div>
+            </div>
+            <div class="accordion-item bg-transparent text-white border border-secondary border-opacity-25">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">Can I try before I buy?</button></h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body text-white-75">Yes, you can start with a free event.</div></div>
+            </div>
+            <div class="accordion-item bg-transparent text-white border border-secondary border-opacity-25">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">Do you support recurring payments?</button></h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body text-white-75">Yes, recurring payments are supported.</div></div>
+            </div>
+            <div class="accordion-item bg-transparent text-white border border-secondary border-opacity-25">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq4">Is multi-org or multi-role access available?</button></h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body text-white-75">Granular roles and permissions let you separate duties by team and module.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section sec-contact">
+    <div class="blob" style="width:280px;height:280px;bottom:-60px;left:12%"></div>
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6 reveal">
+          <div class="card-neo u-green p-4">
+            <h3 class="mb-2 section-title">Let’s work together</h3>
+            <p class="text-white-50">Share a bit about your goals. We’ll reach out within one business day.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 reveal">
+          <div class="form-wrap card-neo u-teal">
+            <form class="p-2">
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" placeholder="Jane Doe"/>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="you@company.com"/>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea rows="4" class="form-control" placeholder="Tell us what you’re planning..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary-neo">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="section" style="padding-top:40px;padding-bottom:24px;border-top:1px solid var(--line)">
+    <div class="container">
+      <div class="d-flex flex-column flex-sm-row justify-content-between small">
+        <div>© <span id="year"></span> ORBIT</div>
+        <div class="text-white-50">Made with Bootstrap 5</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Pricing toggle behavior
+    const toggle = document.getElementById('togglePlan');
+    const prices = document.querySelectorAll('.price');
+    const setPrices = () => {
+      prices.forEach(p => {
+        const month = p.getAttribute('data-month');
+        const year = p.getAttribute('data-year');
+        p.textContent = toggle && toggle.checked ? `$${year}` : `$${month}`;
+      });
+    };
+    if (toggle) toggle.addEventListener('change', setPrices);
+    setPrices();
+
+    // Counter animation
+    const counters=document.querySelectorAll('.counter');
+    const coi=new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting) return;
+        const el=entry.target;
+        const target=+el.dataset.target;
+        const suffix=el.dataset.suffix||'';
+        const dur=1200;
+        const start=performance.now();
+        function tick(now){
+          const p=Math.min(1,(now-start)/dur);
+          const value=Math.floor(target*p);
+          el.textContent=value+suffix;
+          if(p<1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        coi.unobserve(el);
+      });
+    },{threshold:.4});
+    counters.forEach(c=>coi.observe(c));
+
+    // Scroll reveal
+    const rev=document.querySelectorAll('.reveal');
+    const roi=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('revealed'); roi.unobserve(e.target); }
+      })
+    },{threshold:.15});
+    rev.forEach(el=>roi.observe(el));
+  </script>
+</body>
+</html>
