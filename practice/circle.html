@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Requisition System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        header {
+            background: #1a2a6c;
+            color: white;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .logo h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-left: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .logo-icon {
+            font-size: 40px;
+            color: #fdbb2d;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        nav li {
+            margin-left: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 17px;
+            transition: color 0.3s;
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+        
+        nav a:hover {
+            color: #fdbb2d;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero {
+            padding: 60px 40px;
+            text-align: center;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23f5f5f5" width="100" height="100"/><path fill="%23e6e6e6" d="M0 0L100 100M100 0L0 100" stroke-width="0.5"/></svg>');
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            color: #1a2a6c;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 1s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .card:nth-child(1) { animation-delay: 0.7s; }
+        .card:nth-child(2) { animation-delay: 0.9s; }
+        .card:nth-child(3) { animation-delay: 1.1s; }
+        .card:nth-child(4) { animation-delay: 1.3s; }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background: #1a2a6c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        
+        .card-body {
+            padding: 30px;
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .card-icon {
+            font-size: 50px;
+            color: #1a2a6c;
+            margin-bottom: 20px;
+        }
+        
+        .card-desc {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #1a2a6c;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .btn:hover {
+            background: #2a3b8c;
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 10px;
+            }
+            
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-university logo-icon"></i>
+                <h1>U.CAM</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="hero">
+            <h2>One Stop Service, ICT Centre</h2>
+            <p>Providing comprehensive ICT solutions and services for the university community</p>
+        </div>
+        
+        <div class="dashboard">
+            <div class="card">
+                <div class="card-header">Vehicle Requisition System</div>
+                <div class="card-body">
+                    <i class="fas fa-car card-icon"></i>
+                    <p class="card-desc">Request and manage university vehicles for official trips and activities.</p>
+                    <a href="#" class="btn">Access System</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Telephone Directory</div>
+                <div class="card-body">
+                    <i class="fas fa-phone card-icon"></i>
+                    <p class="card-desc">Find contact information for staff, departments, and services across campus.</p>
+                    <a href="#" class="btn">Search Directory</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">PIMS</div>
+                <div class="card-body">
+                    <i class="fas fa-database card-icon"></i>
+                    <p class="card-desc">Personnel Information Management System for HR and staff data.</p>
+                    <a href="#" class="btn">Manage Data</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">ICT Services</div>
+                <div class="card-body">
+                    <i class="fas fa-laptop-code card-icon"></i>
+                    <p class="card-desc">IT support, network services, software solutions, and technology resources.</p>
+                    <a href="#" class="btn">Request Service</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2023 U.CAM ICT Centre - One Stop Service | All Rights Reserved</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add subtle animation to cards when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseover', function() {
+                    this.style.transform = 'translateY(-10px)';
+                    this.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.15)';
+                });
+                
+                card.addEventListener('mouseout', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
