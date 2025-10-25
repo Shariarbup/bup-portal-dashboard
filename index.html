@@ -75,84 +75,124 @@
   </nav>
 
   <!-- Hero -->
-  <header class="hero">
+  <header class="hero" style="padding:10px 0;">
     <div class="container">
       <div class="row g-4 align-items-center">
         <div class="col-lg-5 reveal">
-          <span class="badge-chip">One-stop Resources</span>
-          <h1 class="mt-3 mb-3 display-6 fw-bold text-gradient">BUP PORTAL — Central Apps & Tools</h1>
-          <p class="lead text-white-50">All BUP links in one fast, organized place.</p>
+          <span class="badge-chip"
+            style="background:rgba(255,255,255,0.1);padding:6px 12px;border-radius:20px;color:#00ffc8;">One-stop
+            Resources</span>
+          <h1 class="mt-3 mb-3 display-6 fw-bold text-gradient" style="color:#fff;">BUP PORTAL — Central Apps & Tools
+          </h1>
+          <p class="lead text-white-50" style="color:rgba(255,255,255,0.7);">All BUP links in one fast, organized place.
+          </p>
           <div class="d-flex gap-2 mt-3">
-            <a href="#events" class="btn btn-primary-neo btn-lg">Events</a>
-            <a href="#documents" class="btn btn-ghost btn-lg">Downloads</a>
+            <a href="#events" class="btn btn-primary-neo btn-lg"
+              style="background:#007bff;color:#fff;padding:10px 20px;border-radius:10px;text-decoration:none;">Events</a>
+            <a href="#documents" class="btn btn-ghost btn-lg"
+              style="background:transparent;color:#00ffc8;padding:10px 20px;border:1px solid #00ffc8;border-radius:10px;text-decoration:none;">Downloads</a>
           </div>
         </div>
 
         <div class="col-lg-7">
-          <div class="row g-3">
-            <!-- UCAM -->
-            <div class="col-6 col-md-4">
-              <div class="tile reveal">
-                <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f393.svg"
-                  alt="student portal" />
-                <div class="fw-semibold"><a href="https://webportal.bup.edu.bd/" target="_blank">UCAM</a></div>
+          <div class="row g-3 justify-content-center" style="margin-top:20px;">
+
+            <!-- Reusable clickable tile -->
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('https://bup.edu.bd/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f3eb.svg" alt="bup"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:18px;font-weight:600;">BUP</div>
               </div>
             </div>
 
-            <!-- Inventory Management System -->
-            <div class="col-6 col-md-4">
-              <div class="tile reveal">
-                <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4e6.svg"
-                  alt="inventory" />
-                <div class="fw-semibold"><a href="http://inventory.bup.edu.bd/" target="_blank">Inventory Management
-                    System</a></div>
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('https://login.microsoftonline.com/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/2709.svg" alt="mail"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:18px;font-weight:600;">Web Mail</div>
               </div>
             </div>
 
-            <!-- Telephone Directory -->
-            <div class="col-6 col-md-4">
-              <div class="tile reveal">
-                <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/260e.svg"
-                  alt="telephone" />
-                <div class="fw-semibold"><a
-                    href="https://portal.bup.edu.bd/Docs/Update%20Telephone%20Directory%20Final.pdf"
-                    target="_blank">Telephone Directory</a></div>
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('https://webportal.bup.edu.bd/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f393.svg" alt="ucam"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:18px;font-weight:600;">UCAM</div>
               </div>
             </div>
 
-            <!-- PIMS -->
-            <div class="col-6 col-md-4">
-              <div class="tile reveal">
-                <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4bc.svg"
-                  alt="pims" />
-                <div class="fw-semibold"><a href="http://hr.bup.edu.bd/" target="_blank">PIMS</a></div>
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('http://inventory.bup.edu.bd/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4e6.svg" alt="inventory"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:18px;font-weight:600;">Inventory System</div>
               </div>
             </div>
 
-            <!-- Vehicle Requisition System -->
-            <div class="col-6 col-md-4">
-              <div class="tile reveal">
-                <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f697.svg"
-                  alt="vehicle" />
-                <div class="fw-semibold"><a href="http://vrms.bup.edu.bd/" target="_blank">Vehicle Requisition
-                    System</a></div>
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div
+                onclick="window.open('https://portal.bup.edu.bd/Docs/Update%20Telephone%20Directory%20Final.pdf','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/260e.svg" alt="telephone"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:18px;font-weight:600;">Telephone Directory</div>
               </div>
             </div>
 
-            <!-- One Stop Service ICT centre -->
-            <div class="col-6 col-md-4">
-              <div class="tile reveal">
-                <img class="ico mb-2" src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f6e0.svg"
-                  alt="support" />
-                <div class="fw-semibold"><a href="https://onestopservice.bup.edu.bd/" target="_blank">One Stop Service
-                    ICT Centre</a></div>
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('http://hr.bup.edu.bd/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4bc.svg" alt="pims"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:18px;font-weight:600;">PIMS</div>
               </div>
             </div>
+
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('http://vrms.bup.edu.bd/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f697.svg" alt="vehicle"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:18px;font-weight:600;">Vehicle System</div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('https://onestopservice.bup.edu.bd/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f6e0.svg" alt="support"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:18px;font-weight:600;">One Stop ICT</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
   </header>
+
 
   <!-- Important Events Marquee Section -->
   <section class="events-band">
@@ -186,7 +226,7 @@
     </div>
   </section>
 
-   <!-- BUP Events -->
+  <!-- BUP Events -->
   <section id="events" class="section sec-events"
     style="background: linear-gradient(135deg, #f9fafc 0%, #eef2f7 100%);">
     <div class="container py-5">
@@ -200,7 +240,7 @@
       <div class="row g-4">
 
         <!-- Upcoming Events -->
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-right">
           <h4 class="fw-bold mb-4 d-flex align-items-center" style="color:#0a8754;">
             <i class="bi bi-calendar-event-fill me-2"></i>Upcoming Events
           </h4>
@@ -233,7 +273,7 @@
         </div>
 
         <!-- Previous Events -->
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-left">
           <h4 class="fw-bold mb-4 d-flex align-items-center" style="color:#5f0f40;">
             <i class="bi bi-clock-history me-2"></i>Previous Events
           </h4>
@@ -630,11 +670,9 @@
 
 
   <!-- Un-Used Applications -->
-  <section id="apps-unused" class="section sec-apps bg-secondary text-white">
+  <!-- <section id="apps-unused" class="section sec-apps bg-secondary text-white">
     <div class="container py-5">
       <div class="row align-items-center">
-
-        <!-- Left Side: App Links -->
         <div class="col-lg-8" data-aos="fade-right" data-aos-duration="1000">
           <div class="row g-3">
 
@@ -664,8 +702,6 @@
 
           </div>
         </div>
-
-        <!-- Right Side: Title with Icon -->
         <div class="col-lg-4 text-lg-end text-center mt-4 mt-lg-0" data-aos="fade-left" data-aos-duration="1000">
           <div class="d-inline-block">
             <i class="bi bi-exclamation-triangle display-4 text-warning mb-3"></i>
@@ -676,7 +712,7 @@
 
       </div>
     </div>
-  </section>
+  </section> -->
 
 
   <!-- Back-Office Applications -->
@@ -751,103 +787,179 @@
 
   <!-- BUP Offices -->
   <section id="bup-offices" class="section sec-modules"
-    style="background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); color: #fff; padding: 80px 0; position: relative; overflow: hidden;">
-    <div class="container position-relative">
-      <div class="text-center mb-5" style="text-align:center; margin-bottom:50px;">
-        <div style="width:60px;height:4px;background:#00e0ff;border-radius:2px;margin:0 auto 15px auto;"></div>
-        <h2 style="margin-top:10px;font-weight:700;font-size:2.5rem;">BUP Offices</h2>
+    style="background: radial-gradient(circle at top left, #0a192f, #112240, #1c2942); color: #fff; padding: 90px 0; position: relative; overflow: hidden; font-family: 'Poppins', sans-serif;">
+    <div data-aos="fade-left" class="container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+
+      <div style="margin-bottom: 60px;">
+        <div style="width:70px;height:5px;background:#00e0ff;border-radius:3px;margin:0 auto 15px auto;"></div>
+        <h2 style="font-weight:700;font-size:2.7rem;margin-bottom:10px;">BUP Offices</h2>
         <p style="color:rgba(255,255,255,0.7);font-size:1.1rem;">Explore official departments and support centers</p>
       </div>
 
-      <div class="row g-4" style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;">
+      <div style="display:flex;flex-wrap:wrap;gap:25px;justify-content:center;">
 
-        <!-- Office 1 -->
-        <div
-          style="flex:1 1 250px;max-width:300px;background:linear-gradient(135deg,#00F5A0,#00D9F5);padding:25px;border-radius:20px;color:#fff;box-shadow:0 8px 25px rgba(0,0,0,0.3);position:relative;overflow:hidden;backdrop-filter:blur(8px);transition:all 0.4s ease;">
-          <h5 style="font-weight:700;margin-bottom:10px;">Library & Archive</h5>
-          <p style="font-size:0.95rem;margin-bottom:20px;opacity:0.9;">Access archives, journals, and academic
-            resources.</p>
-          <a href="https://bup.edu.bd/office/office_details/11" target="_blank"
-            style="display:inline-block;padding:8px 16px;background:#fff;color:#000;border-radius:6px;font-weight:600;text-decoration:none;transition:all 0.3s ease;">Visit
-            Office</a>
-        </div>
+        <!-- Helper Function: one card structure repeated with different data -->
+        <!-- Each card is now a full clickable link -->
+        <!-- Card Template -->
+        <!-- 
+      <a href="#" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;...">...</a>
+      -->
 
-        <!-- Office 2 -->
-        <div
-          style="flex:1 1 250px;max-width:300px;background:linear-gradient(135deg,#FF9966,#FF5E62);padding:25px;border-radius:20px;color:#fff;box-shadow:0 8px 25px rgba(0,0,0,0.3);position:relative;overflow:hidden;backdrop-filter:blur(8px);transition:all 0.4s ease;">
-          <h5 style="font-weight:700;margin-bottom:10px;">Student Hall (Female)</h5>
-          <p style="font-size:0.95rem;margin-bottom:20px;opacity:0.9;">Accommodation and student welfare facilities.</p>
-          <a href="https://bup.edu.bd/office/office_details/20" target="_blank"
-            style="display:inline-block;padding:8px 16px;background:#fff;color:#000;border-radius:6px;font-weight:600;text-decoration:none;transition:all 0.3s ease;">Visit
-            Office</a>
-        </div>
+        <a href="https://bup.edu.bd/office/office_details/11" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#00F5A0,#00D9F5);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">Library & Archive</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Access archives, journals, and academic resources.</p>
+        </a>
 
-        <!-- Office 3 -->
-        <div
-          style="flex:1 1 250px;max-width:300px;background:linear-gradient(135deg,#7F00FF,#E100FF);padding:25px;border-radius:20px;color:#fff;box-shadow:0 8px 25px rgba(0,0,0,0.3);position:relative;overflow:hidden;backdrop-filter:blur(8px);transition:all 0.4s ease;">
-          <h5 style="font-weight:700;margin-bottom:10px;">Physical Education Centre</h5>
-          <p style="font-size:0.95rem;margin-bottom:20px;opacity:0.9;">Sports, fitness, and wellness programs.</p>
-          <a href="https://bup.edu.bd/office/office_details/13" target="_blank"
-            style="display:inline-block;padding:8px 16px;background:#fff;color:#000;border-radius:6px;font-weight:600;text-decoration:none;transition:all 0.3s ease;">Visit
-            Office</a>
-        </div>
+        <a href="https://bup.edu.bd/office/office_details/20" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#FF9966,#FF5E62);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">Student Hall</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Accommodation and student welfare facilities.</p>
+        </a>
 
-        <!-- Office 4 -->
-        <div
-          style="flex:1 1 250px;max-width:300px;background:linear-gradient(135deg,#36D1DC,#5B86E5);padding:25px;border-radius:20px;color:#fff;box-shadow:0 8px 25px rgba(0,0,0,0.3);position:relative;overflow:hidden;backdrop-filter:blur(8px);transition:all 0.4s ease;">
-          <h5 style="font-weight:700;margin-bottom:10px;">ICT Centre</h5>
-          <p style="font-size:0.95rem;margin-bottom:20px;opacity:0.9;">Technology infrastructure and IT support.</p>
-          <a href="https://bup.edu.bd/office/office_details/9" target="_blank"
-            style="display:inline-block;padding:8px 16px;background:#fff;color:#000;border-radius:6px;font-weight:600;text-decoration:none;transition:all 0.3s ease;">Visit
-            Office</a>
-        </div>
+        <a href="https://bup.edu.bd/office/office_details/13" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#7F00FF,#E100FF);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">Physical Education Centre</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Sports, fitness, and wellness programs.</p>
+        </a>
 
-        <!-- Office 5 -->
-        <div
-          style="flex:1 1 250px;max-width:300px;background:linear-gradient(135deg,#F7971E,#FFD200);padding:25px;border-radius:20px;color:#fff;box-shadow:0 8px 25px rgba(0,0,0,0.3);position:relative;overflow:hidden;backdrop-filter:blur(8px);transition:all 0.4s ease;">
-          <h5 style="font-weight:700;margin-bottom:10px;">Cafeteria</h5>
-          <p style="font-size:0.95rem;margin-bottom:20px;opacity:0.9;">Food and refreshment services for students and
-            staff.</p>
-          <a href="https://bup.edu.bd/office/office_details/36" target="_blank"
-            style="display:inline-block;padding:8px 16px;background:#fff;color:#000;border-radius:6px;font-weight:600;text-decoration:none;transition:all 0.3s ease;">Visit
-            Office</a>
-        </div>
+        <a href="https://bup.edu.bd/office/office_details/9" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#36D1DC,#5B86E5);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">ICT Centre</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Technology infrastructure and IT support.</p>
+        </a>
 
-        <!-- Office 6 -->
-        <div
-          style="flex:1 1 250px;max-width:300px;background:linear-gradient(135deg,#1E3C72,#2A5298);padding:25px;border-radius:20px;color:#fff;box-shadow:0 8px 25px rgba(0,0,0,0.3);position:relative;overflow:hidden;backdrop-filter:blur(8px);transition:all 0.4s ease;">
-          <h5 style="font-weight:700;margin-bottom:10px;">Security Cell</h5>
-          <p style="font-size:0.95rem;margin-bottom:20px;opacity:0.9;">Campus safety, access control, and surveillance.
-          </p>
-          <a href="https://bup.edu.bd/office/office_details/26" target="_blank"
-            style="display:inline-block;padding:8px 16px;background:#fff;color:#000;border-radius:6px;font-weight:600;text-decoration:none;transition:all 0.3s ease;">Visit
-            Office</a>
-        </div>
+        <a href="https://bup.edu.bd/office/office_details/36" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#F7971E,#FFD200);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">Cafeteria</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Food and refreshment services for students and staff.</p>
+        </a>
 
-        <!-- Office 7 -->
-        <div
-          style="flex:1 1 250px;max-width:300px;background:linear-gradient(135deg,#00B4DB,#0083B0);padding:25px;border-radius:20px;color:#fff;box-shadow:0 8px 25px rgba(0,0,0,0.3);position:relative;overflow:hidden;backdrop-filter:blur(8px);transition:all 0.4s ease;">
-          <h5 style="font-weight:700;margin-bottom:10px;">Medical Centre</h5>
-          <p style="font-size:0.95rem;margin-bottom:20px;opacity:0.9;">Healthcare, first aid, and medical consultation.
-          </p>
-          <a href="https://bup.edu.bd/office/office_details/10" target="_blank"
-            style="display:inline-block;padding:8px 16px;background:#fff;color:#000;border-radius:6px;font-weight:600;text-decoration:none;transition:all 0.3s ease;">Visit
-            Office</a>
-        </div>
+        <a href="https://bup.edu.bd/office/office_details/26" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#1E3C72,#2A5298);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">Security Cell</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Campus safety, access control, and surveillance.</p>
+        </a>
 
-        <!-- Office 8 -->
-        <div
-          style="flex:1 1 250px;max-width:300px;background:linear-gradient(135deg,#C31432,#240B36);padding:25px;border-radius:20px;color:#fff;box-shadow:0 8px 25px rgba(0,0,0,0.3);position:relative;overflow:hidden;backdrop-filter:blur(8px);transition:all 0.4s ease;">
-          <h5 style="font-weight:700;margin-bottom:10px;">MT Section</h5>
-          <p style="font-size:0.95rem;margin-bottom:20px;opacity:0.9;">Transportation and vehicle management unit.</p>
-          <a href="https://bup.edu.bd/office/office_details/19" target="_blank"
-            style="display:inline-block;padding:8px 16px;background:#fff;color:#000;border-radius:6px;font-weight:600;text-decoration:none;transition:all 0.3s ease;">Visit
-            Office</a>
-        </div>
+        <a href="https://bup.edu.bd/office/office_details/10" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#00B4DB,#0083B0);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">Medical Centre</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Healthcare, first aid, and medical consultation.</p>
+        </a>
+
+        <a href="https://bup.edu.bd/office/office_details/19" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#C31432,#240B36);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">MT Section</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Transportation and vehicle management unit.</p>
+        </a>
+
+        <!-- NEWLY ADDED OFFICES -->
+        <a href="https://bup.edu.bd/oefcd" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#FF512F,#DD2476);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">OEFCD</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Office of the Evaluation, Faculty & Curriculum Development.</p>
+        </a>
+
+        <a href="https://bup.edu.bd/office/office_details/17" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#00C9FF,#92FE9D);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">OIA</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Office of International Affairs and collaborations.</p>
+        </a>
+
+        <a href="https://bup.edu.bd/iqac" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#56CCF2,#2F80ED);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">IQAC</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Institutional Quality Assurance Cell.</p>
+        </a>
+
+        <a href="https://bup.edu.bd/cpc" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#ff9966,#ff5e62);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">CPC</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Career Planning Centre for student development.</p>
+        </a>
+
+        <a href="https://alumni.bup.edu.bd/" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#43C6AC,#191654);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">Alumni</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">BUP Alumni Network and engagement programs.</p>
+        </a>
+
+        <a href="https://bup.edu.bd/chsr" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#FDC830,#F37335);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">CHSR</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Centre for Higher Studies and Research.</p>
+        </a>
+
+        <a href="https://bup.edu.bd/office/office_details/40" target="_blank" style="text-decoration:none;flex:1 1 260px;max-width:300px;background:linear-gradient(135deg,#4568DC,#B06AB3);
+        padding:25px;border-radius:20px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,0.3);transition:all 0.4s ease;
+        position:relative;overflow:hidden;cursor:pointer;">
+          <div style="position:absolute;top:0;left:-75px;width:50px;height:100%;background:rgba(255,255,255,0.2);
+        transform:skewX(-20deg);transition:0.7s;"></div>
+          <h4 style="font-weight:700;margin-bottom:10px;">BRC</h4>
+          <p style="font-size:0.95rem;opacity:0.9;">Bangladesh Research Centre initiatives and publications.</p>
+        </a>
 
       </div>
     </div>
   </section>
+
+  <script>
+    // Hover animation for light reflection
+    document.querySelectorAll('#bup-offices a').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const shine = card.querySelector('div');
+        shine.style.left = '120%';
+      });
+      card.addEventListener('mouseleave', () => {
+        const shine = card.querySelector('div');
+        shine.style.left = '-75px';
+      });
+    });
+  </script>
+
+
 
   <!-- Important messages -->
   <section class="section sec-cta"
@@ -857,7 +969,7 @@
     </div>
 
     <div class="container" style="position:relative;z-index:2;">
-      <div
+      <div data-aos="fade-right"
         style="background:linear-gradient(135deg,#ff416c,#ff4b2b);box-shadow:0 8px 25px rgba(0,0,0,0.3);border-radius:20px;padding:40px;backdrop-filter:blur(8px);display:flex;flex-direction:column;gap:20px;align-items:flex-start;justify-content:center;">
 
         <div style="display:flex;align-items:center;gap:15px;">
@@ -882,7 +994,7 @@
   <!-- Download -->
   <section id="documents" class="section sec-modules"
     style="background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); color: #fff; padding: 80px 0; position: relative; overflow: hidden;">
-    <div class="container position-relative">
+    <div data-aos="fade-left" class="container position-relative">
       <div class="text-center mb-5" style="text-align:center; margin-bottom:50px;">
         <div style="width:60px;height:4px;background:#00e0ff;border-radius:2px;margin:0 auto 15px auto;"></div>
         <h2 style="margin-top:10px;font-weight:700;font-size:2.5rem;">Important Office Documents</h2>
@@ -949,7 +1061,7 @@
   </section>
 
   <!-- STATS -->
-  <section id="stats" class="section sec-stats">
+  <section id="stats" class="section sec-stats" data-aos="fade-right">
     <div class="blob" style="width:240px;height:240px;top:-60px;right:10%"></div>
     <div class="container text-center">
       <h3 class="mb-4 fw-bold section-title reveal">We are in a number at glance</h3>
@@ -994,7 +1106,7 @@
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="section sec-faq">
+  <section id="faq" class="section sec-faq" data-aos="fade-left">
     <div class="blob" style="width:260px;height:260px;top:-70px;right:8%"></div>
     <div class="container">
       <div class="row g-4 align-items-start">
@@ -1065,32 +1177,32 @@
               <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
                 <div class="accordion-body text-white-75">
                   Yes, BUP offers various scholarships and tuition waivers based on academic excellence, financial need.
-              </div>
-            </div>
-
-            <!-- FAQ 5 -->
-            <div class="accordion-item bg-transparent text-white border border-secondary border-opacity-25">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq5">
-                  What extracurricular activities are available at BUP?
-                </button>
-              </h2>
-              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-                <div class="accordion-body text-white-75">
-                  BUP encourages student participation in clubs, sports, debates, cultural programs, and community
-                  services through the BUP Clubs and Societies network.
                 </div>
               </div>
-            </div>
 
+              <!-- FAQ 5 -->
+              <div class="accordion-item bg-transparent text-white border border-secondary border-opacity-25">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq5">
+                    What extracurricular activities are available at BUP?
+                  </button>
+                </h2>
+                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                  <div class="accordion-body text-white-75">
+                    BUP encourages student participation in clubs, sports, debates, cultural programs, and community
+                    services through the BUP Clubs and Societies network.
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section sec-contact" style="position:relative; padding:80px 0; overflow:hidden;">
+  <section data-aos="fade-right" id="contact" class="section sec-contact" style="position:relative; padding:80px 0; overflow:hidden;">
     <div class="blob"
       style="width:280px;height:280px;bottom:-60px;left:12%;background:radial-gradient(circle,rgba(0,255,255,0.1),transparent);position:absolute;border-radius:50%;">
     </div>
@@ -1149,6 +1261,20 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Hover animation for light reflection
+    document.querySelectorAll('#bup-offices a').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const shine = card.querySelector('div');
+        shine.style.left = '120%';
+      });
+      card.addEventListener('mouseleave', () => {
+        const shine = card.querySelector('div');
+        shine.style.left = '-75px';
+      });
+    });
+  </script>
 
   <!-- JS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
