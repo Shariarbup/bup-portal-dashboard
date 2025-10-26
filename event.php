@@ -71,142 +71,142 @@
   </nav>
 
   <!-- Hero -->
- <header class="hero" style="padding:10px 0;">
-  <div class="container">
-    <div class="row g-4 align-items-center">
-      <div class="col-lg-5 reveal">
-        <span class="badge-chip"
-          style="background:rgba(255,255,255,0.1);padding:6px 12px;border-radius:20px;color:#00ffc8;">One-stop
-          Resources</span>
-        <h1 class="mt-3 mb-3 display-6 fw-bold text-gradient" style="color:#fff;">BUP PORTAL — Central Apps & Tools
-        </h1>
-        <p class="lead text-white-50" style="color:rgba(255,255,255,0.7);">All BUP links in one fast, organized place.</p>
-        <div class="d-flex gap-2 mt-3">
-          <a href="#events" class="btn btn-primary-neo btn-lg"
-            style="background:#007bff;color:#fff;padding:10px 20px;border-radius:10px;text-decoration:none;">Events</a>
-          <a href="#documents" class="btn btn-ghost btn-lg"
-            style="background:transparent;color:#00ffc8;padding:10px 20px;border:1px solid #00ffc8;border-radius:10px;text-decoration:none;">Downloads</a>
+  <header class="hero" style="padding:10px 0;">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5 reveal">
+          <span class="badge-chip"
+            style="background:rgba(255,255,255,0.1);padding:6px 12px;border-radius:20px;color:#00ffc8;">One-stop
+            Resources</span>
+          <h1 class="mt-3 mb-3 display-6 fw-bold text-gradient" style="color:#fff;">BUP PORTAL — Central Apps & Tools
+          </h1>
+          <p class="lead text-white-50" style="color:rgba(255,255,255,0.7);">All BUP links in one fast, organized place.
+          </p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="#events" class="btn btn-primary-neo btn-lg"
+              style="background:#007bff;color:#fff;padding:10px 20px;border-radius:10px;text-decoration:none;">Events</a>
+            <a href="#documents" class="btn btn-ghost btn-lg"
+              style="background:transparent;color:#00ffc8;padding:10px 20px;border:1px solid #00ffc8;border-radius:10px;text-decoration:none;">Downloads</a>
+          </div>
         </div>
-      </div>
 
-      <div class="col-lg-7">
-        <div class="row g-3 justify-content-center" style="margin-top:20px;">
+        <div class="col-lg-7">
+          <div class="row g-3 justify-content-center" style="margin-top:20px;">
 
-          <!-- BUP Website -->
-          <div class="col-6 col-md-4" style="text-align:center;">
-            <div onclick="window.open('https://bup.edu.bd/','_blank')"
-              style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
-              onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
-              onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
-              <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f3eb.svg" alt="bup"
-                style="width:48px;height:48px;margin-bottom:8px;">
-              <div style="color:#fff;font-size:15px;font-weight:600;">BUP Website</div>
+            <!-- BUP Website -->
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('https://bup.edu.bd/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f3eb.svg" alt="bup"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:15px;font-weight:600;">BUP Website</div>
+              </div>
             </div>
-          </div>
 
-          <!-- Web Mail -->
-          <div class="col-6 col-md-4" style="text-align:center;">
-            <div onclick="window.open('https://login.microsoftonline.com/','_blank')"
-              style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
-              onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
-              onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
-              <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/2709.svg" alt="mail"
-                style="width:48px;height:48px;margin-bottom:8px;">
-              <div style="color:#fff;font-size:15px;font-weight:600;">Web Mail</div>
+            <!-- Web Mail -->
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('https://login.microsoftonline.com/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/2709.svg" alt="mail"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:15px;font-weight:600;">Web Mail</div>
+              </div>
             </div>
-          </div>
 
-          <!-- UCAM -->
-          <div class="col-6 col-md-4" style="text-align:center;">
-            <div onclick="window.open('https://webportal.bup.edu.bd/','_blank')"
-              style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
-              onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
-              onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
-              <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f393.svg" alt="ucam"
-                style="width:48px;height:48px;margin-bottom:8px;">
-              <div style="color:#fff;font-size:15px;font-weight:600;">UCAM</div>
+            <!-- UCAM -->
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('https://webportal.bup.edu.bd/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f393.svg" alt="ucam"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:15px;font-weight:600;">UCAM</div>
+              </div>
             </div>
-          </div>
 
-          <!-- Inventory System -->
-          <div class="col-6 col-md-4" style="text-align:center;">
-            <div onclick="window.open('http://inventory.bup.edu.bd/','_blank')"
-              style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
-              onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
-              onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
-              <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4e6.svg" alt="inventory"
-                style="width:48px;height:48px;margin-bottom:8px;">
-              <div style="color:#fff;font-size:15px;font-weight:600;">Inventory System</div>
+            <!-- Inventory System -->
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('http://inventory.bup.edu.bd/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4e6.svg" alt="inventory"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:15px;font-weight:600;">Inventory System</div>
+              </div>
             </div>
-          </div>
 
-          <!-- Telephone Directory -->
-          <div class="col-6 col-md-4" style="text-align:center;">
-            <div onclick="window.open('https://portal.bup.edu.bd/Docs/Update%20Telephone%20Directory%20Final.pdf','_blank')"
-              style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
-              onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
-              onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
-              <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/260e.svg" alt="telephone"
-                style="width:48px;height:48px;margin-bottom:8px;">
-              <div style="color:#fff;font-size:14px;font-weight:600;">Telephone Directory</div>
+            <!-- Telephone Directory -->
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div
+                onclick="window.open('https://portal.bup.edu.bd/Docs/Update%20Telephone%20Directory%20Final.pdf','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/260e.svg" alt="telephone"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:14px;font-weight:600;">Telephone Directory</div>
+              </div>
             </div>
-          </div>
 
-          <!-- PIMS -->
-          <div class="col-6 col-md-4" style="text-align:center;">
-            <div onclick="window.open('http://hr.bup.edu.bd/','_blank')"
-              style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
-              onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
-              onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
-              <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4bc.svg" alt="pims"
-                style="width:48px;height:48px;margin-bottom:8px;">
-              <div style="color:#fff;font-size:15px;font-weight:600;">PIMS</div>
+            <!-- PIMS -->
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('http://hr.bup.edu.bd/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4bc.svg" alt="pims"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:15px;font-weight:600;">PIMS</div>
+              </div>
             </div>
-          </div>
 
-          <!-- Vehicle System -->
-          <div class="col-6 col-md-4" style="text-align:center;">
-            <div onclick="window.open('http://vrms.bup.edu.bd/','_blank')"
-              style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
-              onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
-              onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
-              <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f697.svg" alt="vehicle"
-                style="width:48px;height:48px;margin-bottom:8px;">
-              <div style="color:#fff;font-size:15px;font-weight:600;">Vehicle System</div>
+            <!-- Vehicle System -->
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('http://vrms.bup.edu.bd/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f697.svg" alt="vehicle"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:15px;font-weight:600;">Vehicle System</div>
+              </div>
             </div>
-          </div>
 
-          <!-- One Stop ICT -->
-          <div class="col-6 col-md-4" style="text-align:center;">
-            <div onclick="window.open('https://onestopservice.bup.edu.bd/','_blank')"
-              style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
-              onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
-              onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
-              <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f6e0.svg" alt="support"
-                style="width:48px;height:48px;margin-bottom:8px;">
-              <div style="color:#fff;font-size:15px;font-weight:600;">One Stop ICT</div>
+            <!-- One Stop ICT -->
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('https://onestopservice.bup.edu.bd/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f6e0.svg" alt="support"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:15px;font-weight:600;">One Stop ICT</div>
+              </div>
             </div>
-          </div>
 
-          <!-- BUP Admission -->
-          <div class="col-6 col-md-4" style="text-align:center;">
-            <div onclick="window.open('https://admission.bup.edu.bd/','_blank')"
-              style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
-              onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
-              onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
-              <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4cb.svg" alt="admission"
-                style="width:48px;height:48px;margin-bottom:8px;">
-              <div style="color:#fff;font-size:15px;font-weight:600;">BUP Admission</div>
+            <!-- BUP Admission -->
+            <div class="col-6 col-md-4" style="text-align:center;">
+              <div onclick="window.open('https://admission.bup.edu.bd/','_blank')"
+                style="cursor:pointer;background:linear-gradient(135deg,rgba(0,136,255,0.25),rgba(0,255,204,0.15));border:1px solid rgba(0,255,204,0.3);border-radius:16px;padding:24px;box-shadow:0 0 20px rgba(0,255,204,0.2);transition:all 0.3s;"
+                onmouseover="this.style.transform='translateY(-6px) scale(1.03)';this.style.boxShadow='0 0 25px rgba(0,255,255,0.3)';"
+                onmouseout="this.style.transform='none';this.style.boxShadow='0 0 20px rgba(0,255,204,0.2)';">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji/assets/svg/1f4cb.svg" alt="admission"
+                  style="width:48px;height:48px;margin-bottom:8px;">
+                <div style="color:#fff;font-size:15px;font-weight:600;">BUP Admission</div>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</header>
-
-
+  </header>
 
   <!-- Important Events Marquee Section -->
   <section class="events-band">
